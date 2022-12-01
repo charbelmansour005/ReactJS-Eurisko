@@ -9,6 +9,7 @@ import { Paper, TextField, LinearProgress } from "@mui/material";
 import { toast } from "react-toastify";
 import LoginButtons from "../../components/LoginButtons/LoginButtons";
 import LoginError from "../../components/LoginError/LoginError";
+import { imageURL } from "../../helpers/randomizer";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
@@ -29,13 +30,6 @@ const LoginScreen = () => {
     dispatch(userLogin(data));
   };
 
-  const mainImages = [
-    "https://i.ibb.co/4NjDKsn/removedbg-copy.png",
-    "https://i.ibb.co/ZKbYJng/removedbg.png",
-  ];
-  const randomImage = mainImages[Math.floor(Math.random() * 2)];
-  const imageURL = randomImage;
-
   return (
     <div className={classes.Main__body}>
       <Paper
@@ -43,9 +37,7 @@ const LoginScreen = () => {
         sx={{
           paddingTop: 0,
           paddingBottom: 4,
-          // paddingLeft: 15,
-          // paddingRight: 15,
-          width: 500,
+          width: 550,
         }}
       >
         {loading && <LinearProgress color="secondary" />}

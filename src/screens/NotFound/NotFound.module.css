@@ -12,17 +12,24 @@
 .body_1 {
   font-size: 1.1rem;
   font-style: italic;
-  font-weight: bold;
+  background-color: ghostwhite;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .body_2 {
   font-size: 1.1rem;
   font-style: italic;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .body_3 {
   font-size: 1.1rem;
-  font-weight: bold;
+  background-color: beige;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .title {

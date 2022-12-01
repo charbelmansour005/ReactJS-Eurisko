@@ -12,14 +12,14 @@ const ErrorLinks = () => {
     setIsLoading(true);
     setTimeout(() => {
       navigate("/dashboard");
-    }, 500);
+    }, 200);
   };
 
   const handleLoginRedirect = () => {
     setIsLoading(true);
     setTimeout(() => {
       navigate("/login");
-    }, 500);
+    }, 200);
   };
 
   return (
