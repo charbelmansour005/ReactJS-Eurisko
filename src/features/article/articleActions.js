@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../helpers/url";
 
 export const fetchArticles = createAsyncThunk(
   "article/fetchArticles",
@@ -9,10 +10,7 @@ export const fetchArticles = createAsyncThunk(
       headers: { Authorization: `Bearer ${accessToken}` },
     };
     // const page = useSelector((state) => state.article.page);
-    const response = await axios.get(
-      `http://34.245.213.76:3000/articles?page=1`,
-      config
-    );
+    const response = await axios.get(`${BASE_URL}/articles?page=1`, config);
     return response.data.response.docs;
   }
 );

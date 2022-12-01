@@ -41,12 +41,14 @@ const LoginScreen = () => {
       <Paper
         elevation={3}
         sx={{
-          paddingTop: 4,
+          paddingTop: 0,
           paddingBottom: 4,
-          paddingLeft: 15,
-          paddingRight: 15,
+          // paddingLeft: 15,
+          // paddingRight: 15,
+          width: 500,
         }}
       >
+        {loading && <LinearProgress color="secondary" />}
         <form onSubmit={handleSubmit(submitForm)}>
           <LoginError />
           <div className={classes.center__div}>
@@ -79,7 +81,6 @@ const LoginScreen = () => {
             <LoginButtons />
           </div>
         </form>
-        {loading && <LinearProgress color="secondary" />}
       </Paper>
     </div>
   );
