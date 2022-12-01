@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/user/userActions";
 // mui & style
-import "./LoginScreen.css";
+import classes from "./LoginScreen.module.css";
 import { Paper, TextField, LinearProgress } from "@mui/material";
 import { toast } from "react-toastify";
 import FormButtons from "../../components/Login/FormButtons/FormButtons";
 import LoginError from "../../components/Login/LoginError/LoginError";
 
 const LoginScreen = () => {
-  const { loading, userInfo } = useSelector((state) => state.user);
+  const { loading, userInfo, error } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -37,24 +37,23 @@ const LoginScreen = () => {
   const imageURL = randomImage;
 
   return (
-    <div className="Main__body">
+    <div className={classes.Main__body}>
       <Paper
         elevation={3}
         sx={{
-          paddingTop: 6,
-          paddingBottom: 6,
-          paddingLeft: 20,
-          paddingRight: 20,
+          paddingTop: 4,
+          paddingBottom: 4,
+          paddingLeft: 15,
+          paddingRight: 15,
         }}
       >
         <form onSubmit={handleSubmit(submitForm)}>
           <LoginError />
-          <div className="center__div">
-            <img className="main__image" src={imageURL} />
+          <div className={classes.center__div}>
+            <img className={classes.main__image} src={imageURL} />
           </div>
-          <div className="center__div">
+          <div className={classes.center__div}>
             <TextField
-              {...register("username")}
               id="username"
               label="Username"
               variant="outlined"
@@ -63,6 +62,8 @@ const LoginScreen = () => {
               autoFocus
               required
               margin="normal"
+              {...register("username")}
+              helperText={error && "Wrong credentials"}
             />
             <TextField
               id="filled-basic"
@@ -73,11 +74,12 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("password")}
+              helperText={error && "Wrong credentials"}
             />
             <FormButtons />
           </div>
         </form>
-        {loading && <LinearProgress />}
+        {loading && <LinearProgress color="secondary" />}
       </Paper>
     </div>
   );

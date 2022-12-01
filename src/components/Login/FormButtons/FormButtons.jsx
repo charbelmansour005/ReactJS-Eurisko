@@ -1,18 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Button, Link, Grid } from "@mui/material";
-import "./ForButtons.css";
+import classes from "./ForButtons.module.css";
 
 const FormButtons = () => {
   const { loading } = useSelector((state) => state.user);
   return (
     <>
-      <div className="center__div">
+      <div className={classes.center__div}>
         <Button
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2, width: 270 }}
+          sx={{ mt: 3, mb: 2, width: 220 }}
           disabled={loading}
         >
           Login
