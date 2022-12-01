@@ -3,6 +3,7 @@ import classes from "./NotFound.module.css";
 import ErrorLinks from "../../components/ErrorLinks/ErrorLinks";
 import { Paper } from "@mui/material";
 import { color, variant, chosenClassName } from "../../helpers/randomizer";
+import Copyright from "../../components/Copyright/Copyright";
 
 const NotFound = () => {
   return (
@@ -14,6 +15,7 @@ const NotFound = () => {
           unavailable.
         </p>
         <ErrorLinks />
+        <Copyright />
       </Paper>
     </div>
   );

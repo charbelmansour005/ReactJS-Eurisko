@@ -4,7 +4,7 @@ const notifySuccess = () =>
   toast.success("Logged in!", {
     position: "bottom-left",
     autoClose: 5000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,

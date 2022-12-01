@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import classes from "./LoginError.module.css";
+import Alert from "@mui/material/Alert";
 
 const LoginError = () => {
   const { error } = useSelector((state) => state.user);
@@ -8,7 +9,9 @@ const LoginError = () => {
     <>
       {error && (
         <div className={classes.error__container}>
-          <p className={classes.error__message}>{error}</p>
+          <Alert severity="error">
+            <strong>{error}</strong>
+          </Alert>
         </div>
       )}
     </>

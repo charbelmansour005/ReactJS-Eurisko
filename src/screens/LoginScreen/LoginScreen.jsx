@@ -43,14 +43,10 @@ const LoginScreen = () => {
       >
         {loading && <LinearProgress color="secondary" />}
         <form onSubmit={handleSubmit(submitForm)}>
-          {error ? (
-            <LoginError />
-          ) : (
-            <div className={classes.center__div}>
-              <img className={classes.main__image} src={imageURL} />
-            </div>
-          )}
-
+          <div className={classes.center__div}>
+            <img className={classes.main__image} src={imageURL} />
+          </div>
+          <LoginError />
           <div className={classes.center__div}>
             <TextField
               id="username"
@@ -62,7 +58,7 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("username")}
-              helperText={error && "Wrong credentials"}
+              helperText={error && "Wrong username or password"}
             />
             <TextField
               id="filled-basic"
@@ -73,7 +69,7 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("password")}
-              helperText={error && "Wrong credentials"}
+              helperText={error && "Wrong username or password"}
             />
             <LoginButtons />
             <Copyright />

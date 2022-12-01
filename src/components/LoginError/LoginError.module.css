@@ -1,16 +1,7 @@
-.error__message {
-  font-size: 16px;
-  text-align: center;
-  color: rgb(255, 0, 0);
-  cursor: default;
-}
-
 .error__container {
-  padding: 1px;
-  background-color: rgb(254, 213, 213);
-  border-radius: 5px;
   margin-bottom: 20px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
