@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../features/userSlice";
+import { logout } from "../../features/user/userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { searchByContent } from "../features/articleSlice";
-import { fetchArticles } from "../features/articleActions";
+import { searchByContent } from "../../features/article/articleSlice";
+import { fetchArticles } from "../../features/article/articleActions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -21,8 +21,8 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  // ...js state gets lost on reload
-  // to NOT use state on reload: const userInfo = localStorage.getItem("token")
+  // ...javascript state gets lost on reload
+  // to NOT avoid that: const userInfo = localStorage.getItem("token")
   const { userInfo } = useSelector((state) => state.user);
 
   const authRedirect = () => {

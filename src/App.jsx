@@ -1,12 +1,16 @@
 import "./App.css";
-import { RoutesAsObj } from "./routing/RoutesObj";
+import "react-toastify/dist/ReactToastify.css";
+import { RoutesAsObj } from "./routes/RoutesObj";
+import { ToastContainer } from "react-toastify";
+import { Fragment } from "react";
 
-function App() {
+const App = () => {
   return (
-    <>
+    <Fragment>
       <RoutesAsObj />
-    </>
+      <ToastContainer />
+    </Fragment>
   );
-}
+};
 
 export default App;

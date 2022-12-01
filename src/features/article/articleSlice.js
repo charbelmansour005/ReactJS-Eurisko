@@ -19,7 +19,7 @@ const articleSlice = createSlice({
       return {
         ...state,
         filteredArticles:
-          action.payload.length > 0 ? filteredArticles : [...state.articles],
+          action.payload.length > 0 ? filteredArticles : [...state.articles], //replace filteredArticles with articles if no result
       };
     },
   },
