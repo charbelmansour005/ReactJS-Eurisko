@@ -1,4 +1,3 @@
-import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { RoutesAsObj } from "./routes/RoutesObj";
 import { ToastContainer } from "react-toastify";

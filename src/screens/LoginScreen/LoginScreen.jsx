@@ -7,8 +7,8 @@ import { userLogin } from "../../features/user/userActions";
 import classes from "./LoginScreen.module.css";
 import { Paper, TextField, LinearProgress } from "@mui/material";
 import { toast } from "react-toastify";
-import FormButtons from "../../components/Login/FormButtons/FormButtons";
-import LoginError from "../../components/Login/LoginError/LoginError";
+import LoginButtons from "../../components/LoginButtons/LoginButtons";
+import LoginError from "../../components/LoginError/LoginError";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
@@ -76,7 +76,7 @@ const LoginScreen = () => {
               {...register("password")}
               helperText={error && "Wrong credentials"}
             />
-            <FormButtons />
+            <LoginButtons />
           </div>
         </form>
         {loading && <LinearProgress color="secondary" />}

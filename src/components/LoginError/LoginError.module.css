@@ -2,6 +2,7 @@
   font-size: 16px;
   text-align: center;
   color: rgb(255, 0, 0);
+  cursor: default;
 }
 
 .error__container {
