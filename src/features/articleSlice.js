@@ -12,7 +12,6 @@ export const fetchArticles = createAsyncThunk(
   "article/fetchArticles",
   async () => {
     const accessToken = localStorage.getItem("userToken");
-    //token lasts for 1 hour
     const config = {
       headers: { Authorization: `Bearer ${accessToken}` },
     };
