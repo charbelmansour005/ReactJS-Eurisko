@@ -10,6 +10,8 @@
   background-image: url("../../assets//rm-bg-old.png");
   background-position: right;
   background-repeat: no-repeat;
+  background-size: 400px;
+  background-blend-mode: hard-light;
 }
 .center__div {
   display: grid;
