@@ -12,7 +12,7 @@ const FormButtons = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2, width: 300 }}
+          sx={{ mt: 3, mb: 2, width: 350 }}
           disabled={loading}
           color="secondary"
         >
