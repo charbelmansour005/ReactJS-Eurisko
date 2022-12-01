@@ -4,7 +4,7 @@ import { logout } from "../features/userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchByContent } from "../features/articleSlice";
-import { fetchArticles } from "../features/articleSlice";
+import { fetchArticles } from "../features/articleActions";
 
 const Dashboard = () => {
   const navigate = useNavigate();
