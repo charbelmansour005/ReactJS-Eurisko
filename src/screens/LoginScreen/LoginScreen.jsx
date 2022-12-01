@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/user/userActions";
+import Copyright from "../../components/Copyright/Copyright";
 // mui & style
 import classes from "./LoginScreen.module.css";
 import { Paper, TextField, LinearProgress } from "@mui/material";
-import { toast } from "react-toastify";
 import LoginButtons from "../../components/LoginButtons/LoginButtons";
 import LoginError from "../../components/LoginError/LoginError";
 import { imageURL } from "../../helpers/randomizer";
+import notifySuccess from "../../helpers/toasts";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
@@ -42,10 +43,14 @@ const LoginScreen = () => {
       >
         {loading && <LinearProgress color="secondary" />}
         <form onSubmit={handleSubmit(submitForm)}>
-          <LoginError />
-          <div className={classes.center__div}>
-            <img className={classes.main__image} src={imageURL} />
-          </div>
+          {error ? (
+            <LoginError />
+          ) : (
+            <div className={classes.center__div}>
+              <img className={classes.main__image} src={imageURL} />
+            </div>
+          )}
+
           <div className={classes.center__div}>
             <TextField
               id="username"
@@ -71,6 +76,7 @@ const LoginScreen = () => {
               helperText={error && "Wrong credentials"}
             />
             <LoginButtons />
+            <Copyright />
           </div>
         </form>
       </Paper>
@@ -79,15 +85,3 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-
-const notifySuccess = () =>
-  toast.success("Logged in!", {
-    position: "bottom-left",
-    autoClose: 5000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });

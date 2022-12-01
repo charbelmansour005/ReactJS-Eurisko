@@ -7,11 +7,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: url("../../assets//rm-bg-old.png");
+  background-image: url("../../assets/rm-bg-old.png");
   background-position: right;
   background-repeat: no-repeat;
-  background-size: 350px;
-  background-blend-mode: hard-light;
+  background-size: 300px;
+  background-blend-mode: luminosity;
 }
 .center__div {
   display: grid;

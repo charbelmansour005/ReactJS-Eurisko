@@ -8,9 +8,8 @@
 .error__container {
   padding: 1px;
   background-color: rgb(254, 213, 213);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
