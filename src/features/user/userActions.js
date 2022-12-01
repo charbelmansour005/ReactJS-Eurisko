@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { SIGN_IN_URL } from "../../helpers/url";
 
 export const userLogin = createAsyncThunk(
   "user/login",
@@ -13,7 +14,7 @@ export const userLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "http://34.245.213.76:3000/auth/signin",
+        `${SIGN_IN_URL}`,
         { username, password },
         config
       );
