@@ -13,6 +13,7 @@ import {
   Button,
   CardActions,
   Card,
+  Tooltip,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -29,6 +30,7 @@ import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import SkeletonCard from "../../components/Skeleton/SkeletonCard";
 import ArticleError from "../../components/ArticleError/ArticleError";
+import NothingFound from "../../components/NothingFound/NothingFound";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -61,7 +63,6 @@ const Dashboard = () => {
     dispatch(searchByContent(searchTerm));
   }, [searchTerm, dispatch]);
 
-  // clear search input
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -75,7 +76,6 @@ const Dashboard = () => {
       <div className={classes.top__center}>
         <Paper
           component="form"
-          // variant="outlined"
           sx={{
             p: "2px 4px",
             display: "flex",
@@ -84,33 +84,36 @@ const Dashboard = () => {
           }}
         >
           <MaterialUISwitch />
-          <Divider sx={{ height: 28 }} orientation="vertical" />
+          <Divider
+            sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
+            orientation="vertical"
+          />
           <LogoutButton />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
           <SearchIcon sx={{ p: "10px" }} />
           <InputBase
-            sx={{ ml: 1, flex: 1 }}
+            sx={{ ml: 1, flex: 1, width: "100vw" }}
             placeholder="Search Articles"
             inputProps={{ "aria-label": "search articles" }}
             onChange={handleSearchInput}
             value={searchTerm}
           />
           {searchTerm.length ? (
-            <IconButton
-              sx={{ p: "10px" }}
-              aria-label="menu"
-              onClick={handleClearSearch}
-            >
-              <ClearIcon />
-            </IconButton>
+            <Tooltip title="Clear" placement="right">
+              <IconButton
+                sx={{ p: "10px" }}
+                aria-label="menu"
+                onClick={handleClearSearch}
+              >
+                <ClearIcon />
+              </IconButton>
+            </Tooltip>
           ) : null}
         </Paper>
       </div>
-
       <div>
         <SkeletonCard />
         <ArticleError />
-        {/* {article.error && <h2>{article.error}</h2>} */}
         {filteredArticles.length ? (
           <div className={classes.article__flex}>
             {filteredArticles.map((article, index) => (
@@ -146,7 +149,7 @@ const Dashboard = () => {
             ))}
           </div>
         ) : (
-          <p>Nothing found</p>
+          <NothingFound />
         )}
       </div>
     </div>

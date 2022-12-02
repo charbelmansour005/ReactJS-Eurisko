@@ -1,4 +1,4 @@
-import classes from "../screens/NotFound/NotFound.module.css";
+import classes from "../screens/Page404/Page404.module.css";
 import Image1 from "../assets/ny.jpeg";
 import Image2 from "../assets/485887.jpeg";
 

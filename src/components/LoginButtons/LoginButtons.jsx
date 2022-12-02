@@ -7,7 +7,7 @@ const FormButtons = () => {
   const { loading } = useSelector((state) => state.user);
   return (
     <Fragment>
-      <div className={classes.center__div}>
+      {/* <div className={classes.center__div}>
         <Button
           type="submit"
           fullWidth
@@ -18,7 +18,7 @@ const FormButtons = () => {
         >
           Login
         </Button>
-      </div>
+      </div> */}
       <Grid container>
         <Grid item xs>
           <Link href="#" variant="body2">

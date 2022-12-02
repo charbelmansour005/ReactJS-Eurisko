@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Switch, FormControlLabel } from "@mui/material";
+import { Switch, FormControlLabel, Tooltip } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../features/theme/themeSlice";
 import { Fragment } from "react";
@@ -56,16 +56,21 @@ const MaterialUISwitch = () => {
   const dispatch = useDispatch();
   return (
     <Fragment>
-      <FormControlLabel
-        control={
-          <MaterialUISwitchDesgin
-            sx={{ m: 1, marginLeft: 2 }}
-            checked={theme.darkTheme}
-            onChange={() => dispatch(toggleTheme())}
-          />
-        }
-        label=""
-      />
+      <Tooltip
+        title={theme.darkTheme ? "Switch to light" : "Switch to dark"}
+        placement="bottom"
+      >
+        <FormControlLabel
+          control={
+            <MaterialUISwitchDesgin
+              sx={{ m: 1, marginLeft: 2 }}
+              checked={theme.darkTheme}
+              onChange={() => dispatch(toggleTheme())}
+            />
+          }
+          label=""
+        />
+      </Tooltip>
     </Fragment>
   );
 };

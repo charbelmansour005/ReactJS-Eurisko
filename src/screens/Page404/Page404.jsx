@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./NotFound.module.css";
+import classes from "./Page404.module.css";
 import ErrorLinks from "../../components/ErrorLinks/ErrorLinks";
 import { Paper } from "@mui/material";
 import { color, variant, chosenClassName } from "../../helpers/randomizer";
