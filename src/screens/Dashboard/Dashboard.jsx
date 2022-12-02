@@ -168,8 +168,12 @@ const Dashboard = () => {
           <NothingFound />
         )}
       </div>
-      <button onClick={handlePageUp}>Next Page</button>
-      <button onClick={handlePageDown}>Next Page</button>
+      <button disabled={article.page === 2} onClick={handlePageUp}>
+        Next Page
+      </button>
+      <button disabled={article.page === 1} onClick={handlePageDown}>
+        Prev Page
+      </button>
     </div>
   );
 };
