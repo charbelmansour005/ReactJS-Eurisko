@@ -5,6 +5,14 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchByContent } from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
+// search input
+import classes from "./Dashboard.module.css";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -43,20 +51,49 @@ const Dashboard = () => {
     dispatch(searchByContent(searchTerm));
   }, [searchTerm, dispatch]);
 
+  // clear search input
+  const handleSearchInput = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <div>
-      Dashboard
+      <div className={classes.top__center}>
+        <Paper
+          component="form"
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: 400,
+          }}
+        >
+          <SearchIcon sx={{ p: "10px" }} />
+          {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search Articles"
+            inputProps={{ "aria-label": "search articles" }}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            value={searchTerm}
+          />
+          <IconButton
+            sx={{ p: "10px" }}
+            aria-label="menu"
+            onClick={() => {
+              setSearchTerm(``);
+            }}
+          >
+            <ClearIcon />
+          </IconButton>
+        </Paper>
+      </div>
       <button onClick={handleLogout}>Logout</button>
       <div>
         {article.error && <h2>{article.error}</h2>}
         <h2>Articles</h2>
-        <input
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-          }}
-          type="text"
-          value={searchTerm}
-        />
         {filteredArticles.length && (
           <ul>
             {filteredArticles.map((article) => (
