@@ -10,7 +10,7 @@ import { Paper, TextField, LinearProgress } from "@mui/material";
 import LoginButtons from "../../components/LoginButtons/LoginButtons";
 import LoginError from "../../components/LoginError/LoginError";
 import { imageURL } from "../../helpers/randomizer";
-import notifySuccess from "../../helpers/toasts";
+import notifySuccess from "../../helpers/toasts/SuccessToast";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
@@ -23,7 +23,7 @@ const LoginScreen = () => {
   useEffect(() => {
     if (userInfo) {
       notifySuccess();
-      navigate("/dashboard");
+      navigate("/");
     }
   }, [navigate, userInfo]);
 
@@ -34,7 +34,8 @@ const LoginScreen = () => {
   return (
     <div className={classes.Main__body}>
       <Paper
-        elevation={3}
+        // elevation={3}
+        variant="outlined"
         sx={{
           paddingTop: 0,
           paddingBottom: 4,
@@ -58,7 +59,8 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("username")}
-              helperText={error && "Wrong username or password"}
+              helperText={error && "Wrong credentials"}
+              error={error ? true : false}
             />
             <TextField
               id="filled-basic"
@@ -69,7 +71,8 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("password")}
-              helperText={error && "Wrong username or password"}
+              helperText={error && "Wrong credentials"}
+              error={error ? true : false}
             />
             <LoginButtons />
             <Copyright />

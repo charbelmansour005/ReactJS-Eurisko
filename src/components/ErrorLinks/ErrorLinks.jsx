@@ -11,7 +11,7 @@ const ErrorLinks = () => {
   const handleHomeRedirect = () => {
     setIsLoading(true);
     setTimeout(() => {
-      navigate("/dashboard");
+      navigate("/");
     }, 200);
   };
 

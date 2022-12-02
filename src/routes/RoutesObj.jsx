@@ -6,7 +6,7 @@ import NotFound from "../screens/NotFound/NotFound";
 
 export const RoutesAsObj = () => {
   let element = useRoutes([
-    { path: "/dashboard", element: <Dashboard /> },
+    { path: "/", element: <Dashboard /> },
     { path: "/login", element: <LoginScreen /> },
     { path: "*", element: <NotFound /> },
   ]);

@@ -7,3 +7,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+/* hide scrollbar for all browsers */
+:root::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
