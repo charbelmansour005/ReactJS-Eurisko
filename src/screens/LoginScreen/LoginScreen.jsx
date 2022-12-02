@@ -34,7 +34,7 @@ const LoginScreen = () => {
   return (
     <div className={classes.Main__body}>
       <Paper
-        variant="outlined"
+        variant="elevation"
         sx={{
           paddingTop: 0,
           paddingBottom: 4,
@@ -58,7 +58,7 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("username")}
-              helperText={error && "Wrong Email or password"}
+              // helperText={error && `There was an error`}
               error={error ? true : false}
             />
             <TextField
@@ -70,7 +70,7 @@ const LoginScreen = () => {
               required
               margin="normal"
               {...register("password")}
-              helperText={error && "Wrong credentials"}
+              // helperText={error && `There was an error`}
               error={error ? true : false}
             />
             <LoginButtons />

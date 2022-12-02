@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../features/user/userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchByContent } from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
 // search input
 import classes from "./Dashboard.module.css";
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
+import {
+  Paper,
+  InputBase,
+  Divider,
+  IconButton,
+  Button,
+  CardActions,
+  Card,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
-import Button from "@mui/material/Button";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+// sharing
+import {
+  LinkedinShareButton,
+  RedditShareButton,
+  RedditIcon,
+  LinkedinIcon,
+} from "react-share";
+import CardImage from "../../components/CardImage/CardImage";
+import CardInfo from "../../components/CardInfo/CardInfo";
+import LogoutButton from "../../components/LogoutButton/LogoutButton";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [searchTerm, setSearchTerm] = useState("");
+
   const filteredArticles = useSelector(
     (state) => state.article.filteredArticles
   );
   const article = useSelector((state) => state.article);
-
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/login");
-  };
 
   // ...javascript state gets lost on reload
   // to NOT avoid that: const userInfo = localStorage.getItem("token")
@@ -64,53 +70,81 @@ const Dashboard = () => {
       <div className={classes.top__center}>
         <Paper
           component="form"
+          variant="outlined"
           sx={{
             p: "2px 4px",
             display: "flex",
             alignItems: "center",
-            width: 400,
+            width: "100%",
           }}
         >
+          <LogoutButton />
+          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
           <SearchIcon sx={{ p: "10px" }} />
-          {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search Articles"
             inputProps={{ "aria-label": "search articles" }}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
+            onChange={handleSearchInput}
             value={searchTerm}
           />
-          <IconButton
-            sx={{ p: "10px" }}
-            aria-label="menu"
-            onClick={() => {
-              setSearchTerm(``);
-            }}
-          >
-            <ClearIcon />
-          </IconButton>
+          {searchTerm.length ? (
+            <IconButton
+              sx={{ p: "10px" }}
+              aria-label="menu"
+              onClick={() => {
+                setSearchTerm(``);
+              }}
+            >
+              <ClearIcon />
+            </IconButton>
+          ) : null}
         </Paper>
-        <Button
-          sx={{ marginLeft: 5 }}
-          variant="contained"
-          onClick={handleLogout}
-          size="small"
-        >
-          Logout
-        </Button>
       </div>
 
       <div>
+        {article.loading && <p>Loading articles...</p>}
         {article.error && <h2>{article.error}</h2>}
-        <h2>Articles</h2>
-        {filteredArticles.length && (
-          <ul>
-            {filteredArticles.map((article) => (
-              <li key={Math.random()}>{article.abstract}</li>
+        {filteredArticles.length ? (
+          <div className={classes.article__flex}>
+            {filteredArticles.map((article, index) => (
+              <Card
+                key={article._id}
+                sx={{ maxWidth: 345, m: 5 }}
+                variant="outlined"
+              >
+                <CardImage />
+                <CardInfo article={article} />
+                <CardActions>
+                  <RedditShareButton
+                    url={
+                      article.abstract +
+                      " Shared from: https://euriskomobility.com/"
+                    }
+                    quote={"Eurisko News"}
+                    style={{ margin: "1px" }}
+                  >
+                    <RedditIcon size={32} round />
+                  </RedditShareButton>
+                  <LinkedinShareButton
+                    url={
+                      article.abstract +
+                      " Shared from: https://euriskomobility.com/"
+                    }
+                    quote={"Eurisko News"}
+                    style={{ margin: "1px" }}
+                  >
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+                  <Button size="small" href={article.web_url}>
+                    Learn More
+                  </Button>
+                </CardActions>
+              </Card>
             ))}
-          </ul>
+          </div>
+        ) : (
+          <p>Nothing found</p>
         )}
       </div>
     </div>

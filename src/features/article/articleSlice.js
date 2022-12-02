@@ -14,7 +14,9 @@ const articleSlice = createSlice({
   reducers: {
     searchByContent: (state, action) => {
       const filteredArticles = state.filteredArticles.filter((article) =>
-        article.abstract.toLowerCase().includes(action.payload.toLowerCase())
+        article.headline.main
+          .toLowerCase()
+          .includes(action.payload.toLowerCase())
       );
       return {
         ...state,

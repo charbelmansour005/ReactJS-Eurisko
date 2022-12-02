@@ -1,10 +1,25 @@
 .top__center {
   margin: 0 auto;
-  width: 500px;
+  margin-top: 20px;
+  width: 50%;
   text-align: center;
   display: flex;
   flex-direction: row;
-  background-color: rgb(229, 229, 229);
-  border: 2px solid rgb(222, 222, 222);
+  background-color: rgb(255, 238, 238);
   border-radius: 5px;
+}
+
+.article__flex {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroller {
+  overflow: auto;
+  margin: 0 auto;
+  height: 70px;
+  width: 300px;
 }

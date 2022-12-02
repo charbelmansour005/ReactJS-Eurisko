@@ -7,6 +7,8 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
+// add request interceptor
+
 axios.interceptors.response.use((response) => {
   return response;
 });
