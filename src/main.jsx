@@ -7,7 +7,16 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-// add request interceptor
+// initiate accessToken
+let accessToken = localStorage.getItem("userToken");
+
+// using interceptor on get requests - not login
+axios.interceptors.request.use((request) => {
+  if (accessToken !== null || accessToken !== "" || accessToken !== undefined) {
+    request.headers = { Authorization: `Bearer ${accessToken}` };
+  }
+  return request;
+});
 
 axios.interceptors.response.use((response) => {
   return response;

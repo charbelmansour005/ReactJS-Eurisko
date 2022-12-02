@@ -70,7 +70,7 @@ const Dashboard = () => {
       <div className={classes.top__center}>
         <Paper
           component="form"
-          variant="outlined"
+          // variant="outlined"
           sx={{
             p: "2px 4px",
             display: "flex",

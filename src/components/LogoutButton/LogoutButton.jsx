@@ -11,6 +11,7 @@ const LogoutButton = () => {
     dispatch(logout());
     navigate("/login");
   };
+
   return (
     <>
       <Button
@@ -18,7 +19,7 @@ const LogoutButton = () => {
         variant="contained"
         onClick={handleLogout}
         size="small"
-        color="error"
+        color="secondary"
       >
         Logout
       </Button>
