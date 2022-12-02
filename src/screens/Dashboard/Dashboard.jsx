@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { searchByContent } from "../../features/article/articleSlice";
+import {
+  searchByContent,
+  incrementPage,
+  decrementPage,
+} from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
 // search input
 import classes from "./Dashboard.module.css";
@@ -69,6 +73,18 @@ const Dashboard = () => {
 
   const handleClearSearch = () => {
     setSearchTerm(``);
+  };
+
+  const handlePageUp = () => {
+    dispatch(incrementPage());
+    dispatch(fetchArticles());
+    console.log(article.page);
+  };
+
+  const handlePageDown = () => {
+    dispatch(decrementPage());
+    dispatch(fetchArticles());
+    console.log(article.page);
   };
 
   return (
@@ -152,6 +168,8 @@ const Dashboard = () => {
           <NothingFound />
         )}
       </div>
+      <button onClick={handlePageUp}>Next Page</button>
+      <button onClick={handlePageDown}>Next Page</button>
     </div>
   );
 };

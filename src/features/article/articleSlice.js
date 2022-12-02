@@ -6,6 +6,7 @@ const initialState = {
   articles: [],
   filteredArticles: [],
   error: "",
+  page: 1,
 };
 
 const articleSlice = createSlice({
@@ -23,6 +24,12 @@ const articleSlice = createSlice({
         filteredArticles:
           action.payload.length > 0 ? filteredArticles : [...state.articles], //replace filteredArticles with articles if no result
       };
+    },
+    incrementPage: state => {
+      state.page++
+    },
+    decrementPage: (state) => {
+      state.page--
     },
   },
   extraReducers: (builder) => {
@@ -44,6 +51,7 @@ const articleSlice = createSlice({
   },
 });
 
-export const { searchByContent } = articleSlice.actions;
+export const { searchByContent, incrementPage, decrementPage } =
+  articleSlice.actions;
 
 export default articleSlice.reducer;

@@ -12,6 +12,7 @@ const SkeletonCard = () => {
         <div className={classes.skeleton__flex}>
           {[...Array(n)].map(() => (
             <Skeleton
+              key={Math.random()}
               animation="wave"
               variant="rectangular"
               width={340}
