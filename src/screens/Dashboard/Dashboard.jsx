@@ -13,6 +13,9 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import Button from "@mui/material/Button";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -89,8 +92,16 @@ const Dashboard = () => {
             <ClearIcon />
           </IconButton>
         </Paper>
+        <Button
+          sx={{ marginLeft: 5 }}
+          variant="contained"
+          onClick={handleLogout}
+          size="small"
+        >
+          Logout
+        </Button>
       </div>
-      <button onClick={handleLogout}>Logout</button>
+
       <div>
         {article.error && <h2>{article.error}</h2>}
         <h2>Articles</h2>
