@@ -27,6 +27,8 @@ import CardImage from "../../components/CardImage/CardImage";
 import CardInfo from "../../components/CardInfo/CardInfo";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
+import SkeletonCard from "../../components/Skeleton/SkeletonCard";
+import ArticleError from "../../components/ArticleError/ArticleError";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -36,10 +38,9 @@ const Dashboard = () => {
     (state) => state.article.filteredArticles
   );
   const article = useSelector((state) => state.article);
-  const theme = useSelector((state) => state.theme);
 
   // ...javascript state gets lost on reload
-  // to NOT avoid that: const userInfo = localStorage.getItem("token")
+  // to NOT avoid that: const userInfo = localStorage.getItem("userToken")
   const { userInfo } = useSelector((state) => state.user);
 
   const authRedirect = () => {
@@ -65,12 +66,16 @@ const Dashboard = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handleClearSearch = () => {
+    setSearchTerm(``);
+  };
+
   return (
     <div>
       <div className={classes.top__center}>
         <Paper
           component="form"
-          variant="outlined"
+          // variant="outlined"
           sx={{
             p: "2px 4px",
             display: "flex",
@@ -94,9 +99,7 @@ const Dashboard = () => {
             <IconButton
               sx={{ p: "10px" }}
               aria-label="menu"
-              onClick={() => {
-                setSearchTerm(``);
-              }}
+              onClick={handleClearSearch}
             >
               <ClearIcon />
             </IconButton>
@@ -105,16 +108,13 @@ const Dashboard = () => {
       </div>
 
       <div>
-        {article.loading && <p>Loading articles...</p>}
-        {article.error && <h2>{article.error}</h2>}
+        <SkeletonCard />
+        <ArticleError />
+        {/* {article.error && <h2>{article.error}</h2>} */}
         {filteredArticles.length ? (
           <div className={classes.article__flex}>
             {filteredArticles.map((article, index) => (
-              <Card
-                key={article._id}
-                sx={{ maxWidth: 345, m: 5 }}
-                variant="outlined"
-              >
+              <Card key={article._id} sx={{ maxWidth: 345, m: 5 }}>
                 <CardImage />
                 <CardInfo article={article} />
                 <CardActions>
@@ -139,7 +139,7 @@ const Dashboard = () => {
                     <LinkedinIcon size={32} round />
                   </LinkedinShareButton>
                   <Button size="small" href={article.web_url}>
-                    Learn More
+                    Read More
                   </Button>
                 </CardActions>
               </Card>

@@ -60,7 +60,6 @@ const MaterialUISwitch = () => {
         control={
           <MaterialUISwitchDesgin
             sx={{ m: 1, marginLeft: 2 }}
-            // defaultChecked
             checked={theme.darkTheme}
             onChange={() => dispatch(toggleTheme())}
           />

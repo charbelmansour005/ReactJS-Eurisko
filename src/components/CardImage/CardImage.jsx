@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { CardMedia } from "@mui/material";
-import headerimg from "../../assets/485887.jpeg";
+import { chosenCardImage } from "../../helpers/randomizer";
 
 const CardImage = () => {
   return (
@@ -8,7 +8,7 @@ const CardImage = () => {
       <CardMedia
         component="img"
         height="180"
-        image={headerimg}
+        image={chosenCardImage}
         alt="green iguana"
       />
     </Fragment>

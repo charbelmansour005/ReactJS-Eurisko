@@ -12,7 +12,7 @@ let accessToken = localStorage.getItem("userToken");
 
 // using interceptor on get requests - not login
 axios.interceptors.request.use((request) => {
-  if (accessToken !== null || accessToken !== "" || accessToken !== undefined) {
+  if (accessToken != null || accessToken != "" || accessToken != undefined) {
     request.headers = { Authorization: `Bearer ${accessToken}` };
   }
   return request;

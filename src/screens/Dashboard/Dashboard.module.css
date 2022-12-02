@@ -10,9 +10,10 @@
 }
 
 .article__flex {
-  display: grid;
-  grid-template-columns: 400px 400px;
-  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
   align-items: center;
   justify-content: center;
 }

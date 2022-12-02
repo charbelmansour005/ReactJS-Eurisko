@@ -1,4 +1,10 @@
 import classes from "../screens/NotFound/NotFound.module.css";
+import Image1 from "../assets/ny.jpeg";
+import Image2 from "../assets/485887.jpeg";
+
+const cardImages = [Image1, Image2];
+const randomCardImage = cardImages[Math.floor(Math.random() * 2)];
+export const chosenCardImage = randomCardImage;
 
 const classNames = [classes.body_1, classes.body_2, classes.body_3];
 const randomClass = classNames[Math.floor(Math.random() * 3)];

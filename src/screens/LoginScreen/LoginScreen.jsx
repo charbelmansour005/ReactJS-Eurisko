@@ -52,7 +52,7 @@ const LoginScreen = () => {
               id="username"
               label="Username"
               variant="outlined"
-              sx={{ width: 350, mb: 2 }}
+              sx={{ width: 350, mb: 2, color: "black" }}
               name="username"
               autoFocus
               required
@@ -65,7 +65,7 @@ const LoginScreen = () => {
               id="filled-basic"
               label="Password"
               variant="outlined"
-              sx={{ width: 350, mb: 2 }}
+              sx={{ width: 350, mb: 2, color: "black" }}
               type="password"
               required
               margin="normal"
