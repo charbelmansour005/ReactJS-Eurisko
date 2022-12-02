@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { useSelector } from "react-redux";
 import classes from "./LoginError.module.css";
 import Alert from "@mui/material/Alert";
@@ -6,7 +6,7 @@ import Alert from "@mui/material/Alert";
 const LoginError = () => {
   const { error } = useSelector((state) => state.user);
   return (
-    <>
+    <Fragment>
       {error && (
         <div className={classes.error__container}>
           <Alert severity="error">
@@ -14,7 +14,7 @@ const LoginError = () => {
           </Alert>
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 

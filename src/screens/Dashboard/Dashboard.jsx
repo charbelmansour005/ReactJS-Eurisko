@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchByContent } from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
@@ -27,16 +26,17 @@ import {
 import CardImage from "../../components/CardImage/CardImage";
 import CardInfo from "../../components/CardInfo/CardInfo";
 import LogoutButton from "../../components/LogoutButton/LogoutButton";
+import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-
   const filteredArticles = useSelector(
     (state) => state.article.filteredArticles
   );
   const article = useSelector((state) => state.article);
+  const theme = useSelector((state) => state.theme);
 
   // ...javascript state gets lost on reload
   // to NOT avoid that: const userInfo = localStorage.getItem("token")
@@ -70,7 +70,7 @@ const Dashboard = () => {
       <div className={classes.top__center}>
         <Paper
           component="form"
-          // variant="outlined"
+          variant="outlined"
           sx={{
             p: "2px 4px",
             display: "flex",
@@ -78,6 +78,8 @@ const Dashboard = () => {
             width: "100%",
           }}
         >
+          <MaterialUISwitch />
+          <Divider sx={{ height: 28 }} orientation="vertical" />
           <LogoutButton />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
           <SearchIcon sx={{ p: "10px" }} />

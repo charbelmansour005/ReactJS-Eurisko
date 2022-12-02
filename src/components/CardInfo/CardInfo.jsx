@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { CardContent, Typography } from "@mui/material";
 import classes from "./CardInfo.module.css";
 
 const CardInfo = ({ article }) => {
   return (
-    <>
+    <Fragment>
       {" "}
       <CardContent>
         <Typography gutterBottom variant="body2" component="div">
@@ -19,7 +19,7 @@ const CardInfo = ({ article }) => {
           </Typography>
         </div>
       </CardContent>
-    </>
+    </Fragment>
   );
 };
 

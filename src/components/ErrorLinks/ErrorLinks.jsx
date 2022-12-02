@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./ErrorLinks.module.css";
 import { CircularProgress } from "@mui/material";
@@ -23,7 +23,7 @@ const ErrorLinks = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <a className={classes.link__style} onClick={handleHomeRedirect}>
         {"←"} Go back Home
       </a>
@@ -34,7 +34,7 @@ const ErrorLinks = () => {
       <div className={classes.loader__container}>
         {isLoading && <CircularProgress />}
       </div>
-    </>
+    </Fragment>
   );
 };
 

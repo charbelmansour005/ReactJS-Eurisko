@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../features/user/userSlice";
@@ -13,7 +13,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <Button
         sx={{ mr: "3%", ml: "3%" }}
         variant="contained"
@@ -23,7 +23,7 @@ const LogoutButton = () => {
       >
         Logout
       </Button>
-    </>
+    </Fragment>
   );
 };
 

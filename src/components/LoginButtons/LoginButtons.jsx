@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { Button, Link, Grid } from "@mui/material";
 import classes from "./LoginButtons.module.css";
@@ -6,7 +6,7 @@ import classes from "./LoginButtons.module.css";
 const FormButtons = () => {
   const { loading } = useSelector((state) => state.user);
   return (
-    <>
+    <Fragment>
       <div className={classes.center__div}>
         <Button
           type="submit"
@@ -31,7 +31,7 @@ const FormButtons = () => {
           </Link>
         </Grid>
       </Grid>
-    </>
+    </Fragment>
   );
 };
 

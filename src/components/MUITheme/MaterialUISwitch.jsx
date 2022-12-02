@@ -1,8 +1,10 @@
 import { styled } from "@mui/material/styles";
-import { Switch } from "@mui/material";
-// smart component :/
+import { Switch, FormControlLabel } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../features/theme/themeSlice";
+import { Fragment } from "react";
 
-export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitchDesgin = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -48,3 +50,25 @@ export const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
+
+const MaterialUISwitch = () => {
+  const theme = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
+  return (
+    <Fragment>
+      <FormControlLabel
+        control={
+          <MaterialUISwitchDesgin
+            sx={{ m: 1, marginLeft: 2 }}
+            // defaultChecked
+            checked={theme.darkTheme}
+            onChange={() => dispatch(toggleTheme())}
+          />
+        }
+        label=""
+      />
+    </Fragment>
+  );
+};
+
+export default MaterialUISwitch;
