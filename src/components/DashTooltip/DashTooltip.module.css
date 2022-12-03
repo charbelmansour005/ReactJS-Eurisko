@@ -1,0 +1,9 @@
+.responsive__tooltip {
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .responsive__tooltip {
+    display: none;
+  }
+}

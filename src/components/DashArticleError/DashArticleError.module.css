@@ -1,6 +1,13 @@
+.container__div {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .center {
   display: grid;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }

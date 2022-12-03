@@ -27,16 +27,18 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // login user
+    // login user - pending
     builder.addCase(userLogin.pending, (state, action) => {
       state.loading = true;
       state.error = null;
     });
+    // login user - success
     builder.addCase(userLogin.fulfilled, (state, action) => {
       state.loading = false;
       state.userInfo = action.payload;
       state.userToken = action.payload.accessToken;
     });
+    // login user - failed req
     builder.addCase(userLogin.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;

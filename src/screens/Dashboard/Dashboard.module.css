@@ -49,6 +49,11 @@
   }
 }
 
+.responsive__searchIcon {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 .pulldown__refresh {
   align-items: center;
   justify-content: center;
@@ -63,7 +68,7 @@
   margin-bottom: 10px;
   margin-right: 5px;
   margin-left: 5px;
-  width: 6%;
+  width: 40px;
 }
 
 .nav__button:active {
@@ -79,4 +84,14 @@
   background-color: transparent;
   background-color: rgb(144, 144, 144);
   cursor: auto;
+}
+
+.responsive__tooltip {
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .responsive__tooltip {
+    display: none;
+  }
 }

@@ -13,6 +13,7 @@ const articleSlice = createSlice({
   name: "article",
   initialState,
   reducers: {
+    // filter articles
     searchByContent: (state, action) => {
       const filteredArticles = state.filteredArticles.filter((article) =>
         article.headline.main
@@ -22,26 +23,32 @@ const articleSlice = createSlice({
       return {
         ...state,
         filteredArticles:
-          action.payload.length > 0 ? filteredArticles : [...state.articles], //replace filteredArticles with articles if no payload
+          // replace filteredArticles with articles if no payload
+          action.payload.length > 0 ? filteredArticles : [...state.articles],
       };
     },
+    // fetch next page
     incrementPage: (state) => {
       state.page++;
     },
+    // fetch prev page
     decrementPage: (state) => {
       state.page--;
     },
   },
   extraReducers: (builder) => {
+    // article fetch loading
     builder.addCase(fetchArticles.pending, (state) => {
       state.loading = true;
     });
+    // article fetch succeed
     builder.addCase(fetchArticles.fulfilled, (state, action) => {
       state.loading = false;
       state.articles = action.payload;
       state.filteredArticles = action.payload;
       state.error = "";
     });
+    // article fetch fail
     builder.addCase(fetchArticles.rejected, (state, action) => {
       state.loading = false;
       state.articles = [];

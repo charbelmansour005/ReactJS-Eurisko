@@ -53,12 +53,14 @@ const MaterialUISwitchDesgin = styled(Switch)(({ theme }) => ({
 
 const MaterialUISwitch = () => {
   const theme = useSelector((state) => state.theme);
+  const tooltip = useSelector((state) => state.tooltip);
   const dispatch = useDispatch();
   return (
     <Fragment>
       <Tooltip
         title={theme.darkTheme ? "Switch to Light" : "Switch to Dark"}
         placement="bottom"
+        disableHoverListener={tooltip.disabled}
       >
         <FormControlLabel
           control={

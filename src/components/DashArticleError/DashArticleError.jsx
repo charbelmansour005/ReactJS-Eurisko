@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const DashArticleError = () => {
   const article = useSelector((state) => state.article);
   return (
-    <Fragment>
+    <div className={classes.container__div}>
       {article.error && (
         <h2 className={classes.center}>
           <Alert severity="error">
@@ -16,7 +16,7 @@ const DashArticleError = () => {
           </Alert>
         </h2>
       )}
-    </Fragment>
+    </div>
   );
 };
 
