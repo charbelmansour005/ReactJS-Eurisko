@@ -36,3 +36,9 @@
   flex-direction: row;
   gap: 6px;
 }
+
+@media (max-width: 767px) {
+  .responsive__navbar {
+    display: none;
+  }
+}
