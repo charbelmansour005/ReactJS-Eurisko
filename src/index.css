@@ -11,7 +11,7 @@
 
 /* hide scrollbar for all browsers */
 :root::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

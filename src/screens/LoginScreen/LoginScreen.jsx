@@ -36,9 +36,7 @@ const LoginScreen = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = () => {
-    dispatch(userLogin({ username, password }));
-  };
+  const handleLogin = () => dispatch(userLogin({ username, password }));
 
   return (
     <div className={classes.Main__body}>
@@ -51,39 +49,39 @@ const LoginScreen = () => {
           // width: 550,
         }}
       > */}
-      {loading && <LinearProgress color="secondary" />}
       <form>
+        {loading && <LinearProgress color="secondary" />}
         <div className={classes.center__div}>
           <img className={classes.main__image} src={imageURL} />
         </div>
         <LoginError />
         <div className={classes.center__div}>
           <div className={classes.MobileCenter}>
-          <TextField
-            id="username"
-            label="Username"
-            variant="outlined"
-            sx={{ mb: 2, color: "black" }}
-            name="username"
-            autoFocus
-            required
-            margin="normal"
-            onChange={handleUsernameChange}
-            error={error ? true : false}
-            className={classes.InputMobile}
-          />
-          <TextField
-            id="filled-basic"
-            label="Password"
-            variant="outlined"
-            sx={{ mb: 2, color: "black" }}
-            type="password"
-            required
-            margin="normal"
-            onChange={handlePasswordChange}
-            error={error ? true : false}
-            className={classes.InputMobile}
-          />
+            <TextField
+              id="username"
+              label="Username"
+              variant="outlined"
+              sx={{ mb: 2, color: "black" }}
+              name="username"
+              autoFocus
+              required
+              margin="normal"
+              onChange={handleUsernameChange}
+              error={error ? true : false}
+              className={classes.InputMobile}
+            />
+            <TextField
+              id="filled-basic"
+              label="Password"
+              variant="outlined"
+              sx={{ mb: 2, color: "black" }}
+              type="password"
+              required
+              margin="normal"
+              onChange={handlePasswordChange}
+              error={error ? true : false}
+              className={classes.InputMobile}
+            />
           </div>
           <div className={classes.center__div}>
             <Button

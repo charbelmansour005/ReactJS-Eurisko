@@ -116,8 +116,8 @@ const Dashboard = () => {
           </div>
           <LogoutButton />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-          <div className={classes.responsive__navbar}>
-            <SearchIcon sx={{ p: "10px" }} />
+          <div className={classes.responsive__searchIcon}>
+            <SearchIcon />
           </div>
           <InputBase
             sx={{ ml: 1, flex: 1, width: "100vw" }}
@@ -193,7 +193,7 @@ const Dashboard = () => {
                     </IconButton>
                   </Tooltip>
                 ) : (
-                  <Tooltip title="Show more" placement="right">
+                  <Tooltip title="Expand" placement="right">
                     <IconButton
                       sx={{ p: "10px" }}
                       aria-label="menu"

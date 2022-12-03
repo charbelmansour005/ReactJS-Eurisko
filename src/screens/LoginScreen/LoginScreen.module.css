@@ -38,20 +38,30 @@
   background-size: 300px;
   background-blend-mode: luminosity;
 }
+
 .center__div {
   display: grid;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
+
 .form__main {
   border: 1px solid white;
   padding: 30px 90px 30px 90px;
   border-radius: 2px;
   background-color: rgb(36, 46, 57);
 }
+
 .main__image {
   width: auto;
   height: 100px;
   margin-top: 10px;
+}
+
+.loader__center {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

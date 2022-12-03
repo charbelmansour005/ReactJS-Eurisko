@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Skeleton } from "@mui/material";
 import classes from "./SkeletonCard.module.css";
 import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 const SkeletonCard = () => {
   const article = useSelector((state) => state.article);
@@ -12,7 +13,7 @@ const SkeletonCard = () => {
         <div className={classes.skeleton__flex}>
           {[...Array(n)].map(() => (
             <Skeleton
-              key={Math.random()}
+              key={uuidv4()}
               animation="wave"
               variant="rectangular"
               width={340}
