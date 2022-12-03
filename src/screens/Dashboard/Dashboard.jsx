@@ -104,16 +104,21 @@ const Dashboard = () => {
             alignItems: "center",
             width: "100%",
           }}
-          // variant="outlined"
         >
-          <MaterialUISwitch />
-          <Divider
-            sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
-            orientation="vertical"
-          />
+          <div className={classes.responsive__navbar}>
+            <MaterialUISwitch />
+          </div>
+          <div className={classes.responsive__navbar}>
+            <Divider
+              sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
+              orientation="vertical"
+            />
+          </div>
           <LogoutButton />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-          <SearchIcon sx={{ p: "10px" }} />
+          <div className={classes.responsive__navbar}>
+            <SearchIcon sx={{ p: "10px" }} />
+          </div>
           <InputBase
             sx={{ ml: 1, flex: 1, width: "100vw" }}
             placeholder="Search Articles"
@@ -142,7 +147,6 @@ const Dashboard = () => {
             {filteredArticles.map((article, index) => (
               <Card key={article._id} sx={{ maxWidth: 345, m: 5, width: 400 }}>
                 <CardImage />
-
                 <CardInfo article={article} />
                 <CardActions>
                   <div className={classes.share__flex}>
