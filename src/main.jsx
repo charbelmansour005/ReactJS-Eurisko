@@ -7,18 +7,21 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-// // initiate accessToken
+// initiate accessToken
 // let accessToken = localStorage.getItem("userToken");
 
-// // using interceptor on get requests - not login
+// using interceptor on get requests - not login
 // axios.interceptors.request.use((request) => {
-//   if (accessToken != null || accessToken != "" || accessToken != undefined) {
+//   console.log(request.headers);
+//   if (accessToken !== null && accessToken !== "" && accessToken !== undefined) {
 //     request.headers = { Authorization: `Bearer ${accessToken}` };
+//     console.log(request.headers);
 //   }
 //   return request;
 // });
 
 axios.interceptors.response.use((response) => {
+  // console.log(response)
   return response;
 });
 

@@ -4,9 +4,10 @@ import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import Dashboard from "../screens/Dashboard/Dashboard";
 import Page404 from "../screens/Page404/Page404";
 
+// gives possiblity to switch routes on/off with api
 export const RoutesAsObj = () => {
   let element = useRoutes([
-    { path: "/", element: <Dashboard /> },
+    { path: "/dashboard", element: <Dashboard /> },
     { path: "/login", element: <LoginScreen /> },
     { path: "*", element: <Page404 /> },
   ]);

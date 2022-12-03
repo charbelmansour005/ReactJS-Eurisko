@@ -29,14 +29,14 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 // components
-import CardImage from "../../components/CardImage/CardImage";
-import CardInfo from "../../components/CardInfo/CardInfo";
-import LogoutButton from "../../components/LogoutButton/LogoutButton";
+import DashCardImage from "../../components/DashCardImage/DashCardImage";
+import DashCardInfo from "../../components/DashCardInfo/DashCardInfo";
+import DashLogoutButton from "../../components/DashLogoutButton/DashLogoutButton";
+import DashArticleError from "../../components/DashArticleError/DashArticleError";
 import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
-import SkeletonCard from "../../components/Skeleton/SkeletonCard";
-import ArticleError from "../../components/ArticleError/ArticleError";
-import NothingFound from "../../components/NothingFound/NothingFound";
-import ShareButtons from "../../components/ShareButtons/ShareButtons";
+import DashCardSkeleton from "../../components/DashCardSkeleton/DashCardSkeleton";
+import DashNoSearchRes from "../../components/DashNoSearchRes/DashNoSearchRes";
+import DashShareButtons from "../../components/DashShareButtons/DashShareButtons";
 import PullToRefresh from "react-simple-pull-to-refresh";
 
 const Dashboard = () => {
@@ -55,6 +55,7 @@ const Dashboard = () => {
   const { userInfo } = useSelector((state) => state.user);
 
   const authRedirect = () => {
+    // console.log(userInfo);
     if (!userInfo) {
       navigate("/login");
     } else return;
@@ -89,6 +90,7 @@ const Dashboard = () => {
       <div>
         <div className={classes.top__center}>
           <Paper
+            elevation={3}
             component="form"
             sx={{
               p: "2px 4px",
@@ -106,7 +108,7 @@ const Dashboard = () => {
                 orientation="vertical"
               />
             </div>
-            <LogoutButton />
+            <DashLogoutButton />
             <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
             <div className={classes.responsive__searchIcon}>
               <SearchIcon />
@@ -132,8 +134,8 @@ const Dashboard = () => {
           </Paper>
         </div>
         <div>
-          <SkeletonCard />
-          <ArticleError />
+          <DashCardSkeleton />
+          <DashArticleError />
           {filteredArticles.length ? (
             <div className={classes.article__flex}>
               {filteredArticles.map((article, index) => (
@@ -201,50 +203,46 @@ const Dashboard = () => {
                     </>
                   ) : (
                     <>
-                      <CardImage />
-                      <CardInfo article={article} />
+                      <DashCardImage />
+                      <DashCardInfo article={article} />
                       <Divider
                         sx={{ height: 28, m: 0.5 }}
                         orientation="horizontal"
                       />
                       <CardActions>
                         <div className={classes.share__flex}>
-                          <ShareButtons article={article} />
+                          <DashShareButtons article={article} />
                           <Chip
                             label={article.document_type}
                             size="small"
                             sx={{ mb: 0.9, fontSize: 12 }}
                           />
                         </div>
-                      </CardActions>{" "}
+                      </CardActions>
                     </>
                   )}
                 </Card>
               ))}
             </div>
           ) : (
-            <NothingFound />
+            <DashNoSearchRes />
           )}
         </div>
         <div className={classes.center__navigation}>
-          <IconButton
-            sx={{ p: "10px" }}
-            color="primary"
-            aria-label="menu"
+          <button
+            className={classes.nav__button}
             onClick={handlePageDown}
             disabled={article.page === 1 || searchTerm.length}
           >
-            <NavigateBeforeIcon />
-          </IconButton>
-          <IconButton
-            sx={{ p: "10px" }}
-            color="primary"
-            aria-label="menu"
+            <NavigateBeforeIcon variant="primary" />
+          </button>
+          <button
+            className={classes.nav__button}
             onClick={handlePageUp}
             disabled={article.page === 2 || searchTerm.length}
           >
             <NavigateNextIcon />
-          </IconButton>
+          </button>
         </div>
       </div>
     </PullToRefresh>

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { CardContent, Typography } from "@mui/material";
-import classes from "./CardInfo.module.css";
+import classes from "./DashCardInfo.module.css";
 
-const CardInfo = ({ article }) => {
+const DashCardInfo = ({ article }) => {
   return (
     <Fragment>
       <CardContent>
@@ -27,4 +27,4 @@ const CardInfo = ({ article }) => {
   );
 };
 
-export default CardInfo;
+export default DashCardInfo;

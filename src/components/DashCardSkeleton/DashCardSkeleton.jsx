@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Skeleton } from "@mui/material";
-import classes from "./SkeletonCard.module.css";
+import classes from "./DashCardSkeleton.module.css";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-const SkeletonCard = () => {
+const DashCardSkeleton = () => {
   const article = useSelector((state) => state.article);
   const n = article.articles.length;
   return (
@@ -18,7 +18,7 @@ const SkeletonCard = () => {
               variant="rectangular"
               width={340}
               height={400}
-              sx={{ m: 2 }}
+              sx={{ m: 10 }}
             />
           ))}
         </div>
@@ -27,4 +27,4 @@ const SkeletonCard = () => {
   );
 };
 
-export default SkeletonCard;
+export default DashCardSkeleton;

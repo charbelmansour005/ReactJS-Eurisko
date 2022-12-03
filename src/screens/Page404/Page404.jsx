@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Page404.module.css";
-import ErrorLinks from "../../components/ErrorLinks/ErrorLinks";
+import Page404ErrorLinks from "../../components/Page404ErrorLinks/Page404ErrorLinks";
 import { Paper } from "@mui/material";
 import { color, variant, chosenClassName } from "../../helpers/randomizer";
 import Copyright from "../../components/Copyright/Copyright";
@@ -14,7 +14,7 @@ const NotFound = () => {
           The page you are looking for might have been removed or temporarily
           unavailable.
         </p>
-        <ErrorLinks />
+        <Page404ErrorLinks />
         <Copyright />
       </Paper>
     </div>

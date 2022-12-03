@@ -1,9 +1,9 @@
 import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import classes from "./ErrorLinks.module.css";
+import classes from "./Page404ErrorLinks.module.css";
 import { CircularProgress } from "@mui/material";
 
-const ErrorLinks = () => {
+const Page404ErrorLinks = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const ErrorLinks = () => {
   const handleHomeRedirect = () => {
     setIsLoading(true);
     setTimeout(() => {
-      navigate("/");
+      navigate("/dashboard");
     }, 200);
   };
 
@@ -38,4 +38,4 @@ const ErrorLinks = () => {
   );
 };
 
-export default ErrorLinks;
+export default Page404ErrorLinks;

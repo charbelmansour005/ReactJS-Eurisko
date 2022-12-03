@@ -54,3 +54,29 @@
   justify-content: center;
   text-align: center;
 }
+
+.nav__button {
+  border: 0px transparent;
+  border-radius: 30px;
+  background-color: rgb(199, 199, 199);
+  padding: 3px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 6%;
+}
+
+.nav__button:active {
+  background-color: rgb(249, 249, 249);
+}
+
+.nav__button:hover {
+  background-color: rgb(217, 217, 217);
+  cursor: pointer;
+}
+
+.nav__button:disabled {
+  background-color: transparent;
+  background-color: rgb(144, 144, 144);
+  cursor: auto;
+}

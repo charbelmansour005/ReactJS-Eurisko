@@ -1,8 +1,8 @@
 import React from "react";
 import Alert from "@mui/material/Alert";
-import classes from "./NothingFound.module.css";
+import classes from "./DashNoSearchRes.module.css";
 
-const NothingFound = () => {
+const DashNoSearchRes = () => {
   return (
     <div className={classes.condensed}>
       <Alert severity="info">No articles match your search criteria</Alert>
@@ -10,4 +10,4 @@ const NothingFound = () => {
   );
 };
 
-export default NothingFound;
+export default DashNoSearchRes;

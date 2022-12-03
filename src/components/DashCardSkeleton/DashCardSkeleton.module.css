@@ -1,7 +1,8 @@
 .skeleton__flex {
-  display: grid;
-  grid-template-columns: 400px 400px;
+  display: flex;
+  flex-direction: row;
   padding: 10px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }

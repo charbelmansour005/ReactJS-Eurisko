@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import classes from "./ArticleError.module.css";
+import classes from "./DashArticleError.module.css";
 import { useSelector } from "react-redux";
 
-const ArticleError = () => {
+const DashArticleError = () => {
   const article = useSelector((state) => state.article);
   return (
     <Fragment>
@@ -20,4 +20,4 @@ const ArticleError = () => {
   );
 };
 
-export default ArticleError;
+export default DashArticleError;

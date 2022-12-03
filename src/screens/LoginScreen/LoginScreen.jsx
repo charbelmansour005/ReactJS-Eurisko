@@ -7,7 +7,7 @@ import Copyright from "../../components/Copyright/Copyright";
 // mui & style
 import classes from "./LoginScreen.module.css";
 import { Paper, TextField, LinearProgress, Button } from "@mui/material";
-import FormLinks from "../../components/FormLinks/FormLinks";
+import LoginFormLinks from "../../components/LoginFormLinks/LoginFormLinks";
 import LoginError from "../../components/LoginError/LoginError";
 import { imageURL } from "../../helpers/randomizer";
 import notifySuccess from "../../helpers/toasts/SuccessToast";
@@ -25,7 +25,7 @@ const LoginScreen = () => {
   useEffect(() => {
     if (userInfo) {
       notifySuccess();
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [navigate, userInfo]);
 
@@ -79,7 +79,7 @@ const LoginScreen = () => {
               required
               margin="normal"
               onChange={handlePasswordChange}
-              error={error ? true : false}
+              error={!!error ? true : false}
               className={classes.InputMobile}
             />
           </div>
@@ -97,7 +97,7 @@ const LoginScreen = () => {
               Login
             </Button>
           </div>
-          <FormLinks />
+          <LoginFormLinks />
           <Copyright />
         </div>
       </form>

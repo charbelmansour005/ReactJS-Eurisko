@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
 import { Link, Grid } from "@mui/material";
+import classes from "./LoginFormLinks.module.css";
 
-const FormLinks = () => {
+const LoginFormLinks = () => {
   return (
     <Fragment>
-      <Grid container>
+      <Grid container className={classes.center__div}>
         <Grid item xs>
           <Link href="#" variant="body2">
             Forgot password?
@@ -20,4 +21,4 @@ const FormLinks = () => {
   );
 };
 
-export default FormLinks;
+export default LoginFormLinks;

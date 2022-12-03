@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { CardMedia } from "@mui/material";
 import { chosenCardImage } from "../../helpers/randomizer";
 
-const CardImage = () => {
+const DashCardImage = () => {
   return (
     <Fragment>
       <CardMedia
@@ -15,4 +15,4 @@ const CardImage = () => {
   );
 };
 
-export default CardImage;
+export default DashCardImage;

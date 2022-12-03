@@ -8,7 +8,7 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-const ShareButtons = ({ article }) => {
+const DashShareButtons = ({ article }) => {
   return (
     <>
       {" "}
@@ -34,4 +34,4 @@ const ShareButtons = ({ article }) => {
   );
 };
 
-export default ShareButtons;
+export default DashShareButtons;

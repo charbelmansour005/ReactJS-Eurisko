@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../features/user/userSlice";
 import { useDispatch } from "react-redux";
 
-const LogoutButton = () => {
+const DashLogoutButton = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -27,4 +27,4 @@ const LogoutButton = () => {
   );
 };
 
-export default LogoutButton;
+export default DashLogoutButton;
