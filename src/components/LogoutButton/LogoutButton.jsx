@@ -16,7 +16,7 @@ const LogoutButton = () => {
     <Fragment>
       <Button
         sx={{ mr: "3%", ml: "3%" }}
-        // variant="contained"
+        variant="contained"
         onClick={handleLogout}
         size="small"
         color="error"

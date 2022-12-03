@@ -60,7 +60,7 @@ const LoginScreen = () => {
             <TextField
               id="username"
               label="Username"
-              variant="outlined"
+              variant="filled"
               sx={{ mb: 2, color: "black" }}
               name="username"
               autoFocus
@@ -73,7 +73,7 @@ const LoginScreen = () => {
             <TextField
               id="filled-basic"
               label="Password"
-              variant="outlined"
+              variant="filled"
               sx={{ mb: 2, color: "black" }}
               type="password"
               required
