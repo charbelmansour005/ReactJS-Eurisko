@@ -28,15 +28,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-// social media share buttons
-import {
-  LinkedinShareButton,
-  LinkedinIcon,
-  RedditShareButton,
-  RedditIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-} from "react-share";
 // components
 import CardImage from "../../components/CardImage/CardImage";
 import CardInfo from "../../components/CardInfo/CardInfo";
@@ -45,6 +36,8 @@ import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import SkeletonCard from "../../components/Skeleton/SkeletonCard";
 import ArticleError from "../../components/ArticleError/ArticleError";
 import NothingFound from "../../components/NothingFound/NothingFound";
+import ShareButtons from "../../components/ShareButtons/ShareButtons";
+import PullToRefresh from "react-simple-pull-to-refresh";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -82,65 +75,72 @@ const Dashboard = () => {
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
+  const handleRefresh = () => dispatch(fetchArticles());
   const handleClearSearch = () => setSearchTerm(``);
   const handlePageUp = () => dispatch(incrementPage());
   const handlePageDown = () => dispatch(decrementPage());
   const hanldeModalClose = () => setIsActive(false);
 
   return (
-    <div>
-      <div className={classes.top__center}>
-        <Paper
-          component="form"
-          sx={{
-            p: "2px 4px",
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <div className={classes.responsive__navbar}>
-            <MaterialUISwitch />
-          </div>
-          <div className={classes.responsive__navbar}>
-            <Divider
-              sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
-              orientation="vertical"
-            />
-          </div>
-          <LogoutButton />
-          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-          <div className={classes.responsive__searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            sx={{ ml: 1, flex: 1, width: "100vw" }}
-            placeholder="Search Articles"
-            inputProps={{ "aria-label": "search articles" }}
-            onChange={handleSearchInput}
-            value={searchTerm}
-          />
-          {searchTerm.length ? (
-            <Tooltip title="Clear" placement="right">
-              <IconButton
-                sx={{ p: "10px" }}
-                aria-label="menu"
-                onClick={handleClearSearch}
-              >
-                <ClearIcon />
-              </IconButton>
-            </Tooltip>
-          ) : null}
-        </Paper>
-      </div>
+    <PullToRefresh
+      onRefresh={handleRefresh}
+      className={classes.pulldown__refresh}
+    >
       <div>
-        <SkeletonCard />
-        <ArticleError />
-        {filteredArticles.length ? (
-          <div className={classes.article__flex}>
-            {filteredArticles.map((article, index) => (
-              <Card key={article._id} sx={{ maxWidth: 345, m: 5, width: 400 }}>
-                <>
+        <div className={classes.top__center}>
+          <Paper
+            component="form"
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <div className={classes.responsive__navbar}>
+              <MaterialUISwitch />
+            </div>
+            <div className={classes.responsive__navbar}>
+              <Divider
+                sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
+                orientation="vertical"
+              />
+            </div>
+            <LogoutButton />
+            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            <div className={classes.responsive__searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              sx={{ ml: 1, flex: 1, width: "100vw" }}
+              placeholder="Search Articles"
+              inputProps={{ "aria-label": "search articles" }}
+              onChange={handleSearchInput}
+              value={searchTerm}
+            />
+            {searchTerm.length ? (
+              <Tooltip title="Clear" placement="right">
+                <IconButton
+                  sx={{ p: "10px" }}
+                  aria-label="menu"
+                  onClick={handleClearSearch}
+                >
+                  <ClearIcon />
+                </IconButton>
+              </Tooltip>
+            ) : null}
+          </Paper>
+        </div>
+        <div>
+          <SkeletonCard />
+          <ArticleError />
+          {filteredArticles.length ? (
+            <div className={classes.article__flex}>
+              {filteredArticles.map((article, index) => (
+                <Card
+                  key={article._id}
+                  sx={{ maxWidth: 345, m: 5, width: 400 }}
+                >
                   <>
                     {isActive === index ? (
                       <Tooltip title="Show less" placement="right">
@@ -164,116 +164,90 @@ const Dashboard = () => {
                       </Tooltip>
                     )}
                   </>
-                </>
-                {isActive === index ? (
-                  <>
-                    <Typography variant="body1" sx={{ m: 2 }}>
-                      Published by {article.source}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ ml: 2, mb: 2, mr: 2 }}
-                    >
-                      On {article.pub_date.split("T")[0]}
-                    </Typography>
-                    <Typography
-                      gutterBottom
-                      variant="body2"
-                      component="div"
-                      sx={{ m: 2 }}
-                    >
-                      {article.abstract}
-                    </Typography>
-                    <Divider
-                      sx={{ height: 28, m: 0.5 }}
-                      orientation="horizontal"
-                    />
-                    <div style={{ display: "grid", alignItems: "center" }}>
-                      <Button
-                        sx={{ m: 2 }}
-                        size="small"
-                        variant="contained"
-                        href={article.web_url}
+                  {isActive === index ? (
+                    <>
+                      <Typography variant="body1" sx={{ m: 2 }}>
+                        Published by {article.source}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{ ml: 2, mb: 2, mr: 2 }}
                       >
-                        View in Full
-                      </Button>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <CardImage />
-                    <CardInfo article={article} />
-                    <Divider
-                      sx={{ height: 28, m: 0.5 }}
-                      orientation="horizontal"
-                    />
-                    <CardActions>
-                      <div className={classes.share__flex}>
-                        <RedditShareButton
-                          url={
-                            article.web_url +
-                            " Shared from: https://euriskomobility.com/"
-                          }
-                          quote={"Eurisko News"}
-                        >
-                          <RedditIcon size={25} round />
-                        </RedditShareButton>
-                        <LinkedinShareButton
-                          url={
-                            article.web_url +
-                            " Shared from: https://euriskomobility.com/"
-                          }
-                          quote={"Eurisko News"}
-                        >
-                          <LinkedinIcon size={25} round />
-                        </LinkedinShareButton>
-                        <WhatsappShareButton
-                          url={
-                            article.web_url +
-                            " Shared from: https://euriskomobility.com/"
-                          }
-                          quote={"Eurisko News"}
-                        >
-                          <WhatsappIcon size={25} round />
-                        </WhatsappShareButton>
-                        <Chip
-                          label={article.document_type}
+                        On {article.pub_date.split("T")[0]}
+                      </Typography>
+                      <Typography
+                        gutterBottom
+                        variant="body2"
+                        component="div"
+                        sx={{ m: 2 }}
+                      >
+                        {article.abstract}
+                      </Typography>
+                      <Divider
+                        sx={{ height: 28, m: 0.5 }}
+                        orientation="horizontal"
+                      />
+                      <div style={{ display: "grid", alignItems: "center" }}>
+                        <Button
+                          sx={{ m: 2 }}
                           size="small"
-                          sx={{ mb: 0.9, fontSize: 12 }}
-                        />
+                          variant="contained"
+                          href={article.web_url}
+                        >
+                          View in Full
+                        </Button>
                       </div>
-                    </CardActions>{" "}
-                  </>
-                )}
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <NothingFound />
-        )}
+                    </>
+                  ) : (
+                    <>
+                      <CardImage />
+                      <CardInfo article={article} />
+                      <Divider
+                        sx={{ height: 28, m: 0.5 }}
+                        orientation="horizontal"
+                      />
+                      <CardActions>
+                        <div className={classes.share__flex}>
+                          <ShareButtons article={article} />
+                          <Chip
+                            label={article.document_type}
+                            size="small"
+                            sx={{ mb: 0.9, fontSize: 12 }}
+                          />
+                        </div>
+                      </CardActions>{" "}
+                    </>
+                  )}
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <NothingFound />
+          )}
+        </div>
+        <div className={classes.center__navigation}>
+          <IconButton
+            sx={{ p: "10px" }}
+            color="primary"
+            aria-label="menu"
+            onClick={handlePageDown}
+            disabled={article.page === 1 || searchTerm.length}
+          >
+            <NavigateBeforeIcon />
+          </IconButton>
+          <IconButton
+            sx={{ p: "10px" }}
+            color="primary"
+            aria-label="menu"
+            onClick={handlePageUp}
+            disabled={article.page === 2 || searchTerm.length}
+          >
+            <NavigateNextIcon />
+          </IconButton>
+        </div>
       </div>
-      <div className={classes.center__navigation}>
-        <IconButton
-          sx={{ p: "10px" }}
-          color="secondary"
-          aria-label="menu"
-          onClick={handlePageDown}
-          disabled={article.page === 1 || searchTerm.length}
-        >
-          <NavigateBeforeIcon />
-        </IconButton>
-        <IconButton
-          sx={{ p: "10px" }}
-          color="secondary"
-          aria-label="menu"
-          onClick={handlePageUp}
-          disabled={article.page === 2 || searchTerm.length}
-        >
-          <NavigateNextIcon />
-        </IconButton>
-      </div>
-    </div>
+    </PullToRefresh>
   );
 };
 

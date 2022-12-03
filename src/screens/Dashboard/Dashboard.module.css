@@ -25,6 +25,12 @@
   width: 300px;
 }
 
+.center__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .share__flex {
   display: flex;
   flex-direction: row;
@@ -41,4 +47,10 @@
   .responsive__searchIcon {
     display: none;
   }
+}
+
+.pulldown__refresh {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
