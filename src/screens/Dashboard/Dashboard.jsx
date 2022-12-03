@@ -19,11 +19,15 @@ import {
   Card,
   Tooltip,
   Typography,
+  Chip,
 } from "@mui/material";
+// icons
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 // sharing
 import {
   LinkedinShareButton,
@@ -41,8 +45,6 @@ import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import SkeletonCard from "../../components/Skeleton/SkeletonCard";
 import ArticleError from "../../components/ArticleError/ArticleError";
 import NothingFound from "../../components/NothingFound/NothingFound";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -177,33 +179,34 @@ const Dashboard = () => {
                     >
                       <WhatsappIcon size={25} round />
                     </WhatsappShareButton>
+                    <Chip
+                      label={article.document_type}
+                      size="small"
+                      sx={{ mb: 0.9, fontSize: 12 }}
+                    />
                   </div>
-                  {/* <Button size="small" href={article.web_url}>
-                    Full Article
-                  </Button> */}
+                  {isActive === index ? (
+                    <Tooltip title="Show less" placement="right">
+                      <IconButton
+                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                        aria-label="menu"
+                        onClick={hanldeModalClose}
+                      >
+                        <ExpandLessIcon />
+                      </IconButton>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Expand" placement="right">
+                      <IconButton
+                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                        aria-label="menu"
+                        onClick={() => setIsActive(index)}
+                      >
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </Tooltip>
+                  )}
                 </CardActions>
-                {isActive === index ? (
-                  <Tooltip title="Show less" placement="right">
-                    <IconButton
-                      sx={{ p: "10px" }}
-                      aria-label="menu"
-                      onClick={hanldeModalClose}
-                    >
-                      <ExpandLessIcon />
-                    </IconButton>
-                  </Tooltip>
-                ) : (
-                  <Tooltip title="Expand" placement="right">
-                    <IconButton
-                      sx={{ p: "10px" }}
-                      aria-label="menu"
-                      onClick={() => setIsActive(index)}
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
-                  </Tooltip>
-                )}
-
                 {isActive === index && (
                   <>
                     <Typography variant="body1" sx={{ m: 2 }}>
@@ -224,7 +227,7 @@ const Dashboard = () => {
                         variant="contained"
                         href={article.web_url}
                       >
-                        Read Full Article Here
+                        View in Full
                       </Button>
                     </div>
                   </>

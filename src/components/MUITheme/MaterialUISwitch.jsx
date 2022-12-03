@@ -57,7 +57,7 @@ const MaterialUISwitch = () => {
   return (
     <Fragment>
       <Tooltip
-        title={theme.darkTheme ? "Switch to light" : "Switch to dark"}
+        title={theme.darkTheme ? "Switch to Light" : "Switch to Dark"}
         placement="bottom"
       >
         <FormControlLabel
