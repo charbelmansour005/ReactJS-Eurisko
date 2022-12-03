@@ -10,11 +10,11 @@ const CardInfo = ({ article }) => {
           {article.headline.main}
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Published in {article.pub_date.split("T")[0]}
+          Published on {article.pub_date.split("T")[0]}
         </Typography>
         <div className={classes.scroller}>
           <Typography gutterBottom variant="body2" component="div">
-            {article.abstract}
+            {article.snippet}
           </Typography>
         </div>
       </CardContent>

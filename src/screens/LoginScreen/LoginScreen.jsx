@@ -7,7 +7,7 @@ import Copyright from "../../components/Copyright/Copyright";
 // mui & style
 import classes from "./LoginScreen.module.css";
 import { Paper, TextField, LinearProgress, Button } from "@mui/material";
-import LoginButtons from "../../components/LoginButtons/LoginButtons";
+import FormLinks from "../../components/FormLinks/FormLinks";
 import LoginError from "../../components/LoginError/LoginError";
 import { imageURL } from "../../helpers/randomizer";
 import notifySuccess from "../../helpers/toasts/SuccessToast";
@@ -29,11 +29,11 @@ const LoginScreen = () => {
   }, [navigate, userInfo]);
 
   const handleUsernameChange = (e) => {
-    setUsername(e.target.value)
-  }
+    setUsername(e.target.value);
+  };
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
+    setPassword(e.target.value);
+  };
 
   const handleLogin = () => {
     dispatch(userLogin({ username, password }));
@@ -92,7 +92,7 @@ const LoginScreen = () => {
                 Login
               </Button>
             </div>
-            <LoginButtons />
+            <FormLinks />
             <Copyright />
           </div>
         </form>

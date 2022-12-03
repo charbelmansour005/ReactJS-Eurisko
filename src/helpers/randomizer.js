@@ -1,6 +1,6 @@
 import classes from "../screens/Page404/Page404.module.css";
 import Image1 from "../assets/ny.jpeg";
-import Image2 from "../assets/485887.jpeg";
+import Image2 from "../assets/ny2.jpeg";
 
 const cardImages = [Image1, Image2];
 const randomCardImage = cardImages[Math.floor(Math.random() * 2)];

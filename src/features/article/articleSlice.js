@@ -22,14 +22,14 @@ const articleSlice = createSlice({
       return {
         ...state,
         filteredArticles:
-          action.payload.length > 0 ? filteredArticles : [...state.articles], //replace filteredArticles with articles if no result
+          action.payload.length > 0 ? filteredArticles : [...state.articles], //replace filteredArticles with articles if no payload
       };
     },
-    incrementPage: state => {
-      state.page++
+    incrementPage: (state) => {
+      state.page++;
     },
     decrementPage: (state) => {
-      state.page--
+      state.page--;
     },
   },
   extraReducers: (builder) => {

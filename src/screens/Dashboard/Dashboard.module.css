@@ -24,3 +24,9 @@
   height: 70px;
   width: 300px;
 }
+
+.center__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
