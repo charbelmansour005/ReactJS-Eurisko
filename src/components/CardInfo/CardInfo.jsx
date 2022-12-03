@@ -9,9 +9,9 @@ const CardInfo = ({ article }) => {
         <Typography gutterBottom variant="body2" component="div">
           {article.headline.main}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        {/* <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           Published on {article.pub_date.split("T")[0]}
-        </Typography>
+        </Typography> */}
         <div className={classes.scroller}>
           <Typography
             gutterBottom

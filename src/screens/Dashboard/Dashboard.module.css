@@ -25,12 +25,6 @@
   width: 300px;
 }
 
-.center__navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .share__flex {
   display: flex;
   flex-direction: row;

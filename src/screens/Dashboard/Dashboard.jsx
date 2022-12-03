@@ -28,7 +28,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-// sharing
+// social media share buttons
 import {
   LinkedinShareButton,
   LinkedinIcon,
@@ -82,17 +82,9 @@ const Dashboard = () => {
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
-
   const handleClearSearch = () => setSearchTerm(``);
-
-  const handlePageUp = () => {
-    dispatch(incrementPage());
-  };
-
-  const handlePageDown = () => {
-    dispatch(decrementPage());
-  };
-
+  const handlePageUp = () => dispatch(incrementPage());
+  const handlePageDown = () => dispatch(decrementPage());
   const hanldeModalClose = () => setIsActive(false);
 
   return (
@@ -148,69 +140,42 @@ const Dashboard = () => {
           <div className={classes.article__flex}>
             {filteredArticles.map((article, index) => (
               <Card key={article._id} sx={{ maxWidth: 345, m: 5, width: 400 }}>
-                <CardImage />
-                <CardInfo article={article} />
-                <CardActions>
-                  <div className={classes.share__flex}>
-                    <RedditShareButton
-                      url={
-                        article.web_url +
-                        " Shared from: https://euriskomobility.com/"
-                      }
-                      quote={"Eurisko News"}
-                    >
-                      <RedditIcon size={25} round />
-                    </RedditShareButton>
-                    <LinkedinShareButton
-                      url={
-                        article.web_url +
-                        " Shared from: https://euriskomobility.com/"
-                      }
-                      quote={"Eurisko News"}
-                    >
-                      <LinkedinIcon size={25} round />
-                    </LinkedinShareButton>
-                    <WhatsappShareButton
-                      url={
-                        article.web_url +
-                        " Shared from: https://euriskomobility.com/"
-                      }
-                      quote={"Eurisko News"}
-                    >
-                      <WhatsappIcon size={25} round />
-                    </WhatsappShareButton>
-                    <Chip
-                      label={article.document_type}
-                      size="small"
-                      sx={{ mb: 0.9, fontSize: 12 }}
-                    />
-                  </div>
-                  {isActive === index ? (
-                    <Tooltip title="Show less" placement="right">
-                      <IconButton
-                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
-                        aria-label="menu"
-                        onClick={hanldeModalClose}
-                      >
-                        <ExpandLessIcon />
-                      </IconButton>
-                    </Tooltip>
-                  ) : (
-                    <Tooltip title="Expand" placement="right">
-                      <IconButton
-                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
-                        aria-label="menu"
-                        onClick={() => setIsActive(index)}
-                      >
-                        <ExpandMoreIcon />
-                      </IconButton>
-                    </Tooltip>
-                  )}
-                </CardActions>
-                {isActive === index && (
+                <>
+                  <>
+                    {isActive === index ? (
+                      <Tooltip title="Show less" placement="right">
+                        <IconButton
+                          sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                          aria-label="menu"
+                          onClick={hanldeModalClose}
+                        >
+                          <ExpandLessIcon />
+                        </IconButton>
+                      </Tooltip>
+                    ) : (
+                      <Tooltip title="More" placement="right">
+                        <IconButton
+                          sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                          aria-label="menu"
+                          onClick={() => setIsActive(index)}
+                        >
+                          <ExpandMoreIcon />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                  </>
+                </>
+                {isActive === index ? (
                   <>
                     <Typography variant="body1" sx={{ m: 2 }}>
                       Published by {article.source}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ ml: 2, mb: 2, mr: 2 }}
+                    >
+                      On {article.pub_date.split("T")[0]}
                     </Typography>
                     <Typography
                       gutterBottom
@@ -220,6 +185,10 @@ const Dashboard = () => {
                     >
                       {article.abstract}
                     </Typography>
+                    <Divider
+                      sx={{ height: 28, m: 0.5 }}
+                      orientation="horizontal"
+                    />
                     <div style={{ display: "grid", alignItems: "center" }}>
                       <Button
                         sx={{ m: 2 }}
@@ -230,6 +199,51 @@ const Dashboard = () => {
                         View in Full
                       </Button>
                     </div>
+                  </>
+                ) : (
+                  <>
+                    <CardImage />
+                    <CardInfo article={article} />
+                    <Divider
+                      sx={{ height: 28, m: 0.5 }}
+                      orientation="horizontal"
+                    />
+                    <CardActions>
+                      <div className={classes.share__flex}>
+                        <RedditShareButton
+                          url={
+                            article.web_url +
+                            " Shared from: https://euriskomobility.com/"
+                          }
+                          quote={"Eurisko News"}
+                        >
+                          <RedditIcon size={25} round />
+                        </RedditShareButton>
+                        <LinkedinShareButton
+                          url={
+                            article.web_url +
+                            " Shared from: https://euriskomobility.com/"
+                          }
+                          quote={"Eurisko News"}
+                        >
+                          <LinkedinIcon size={25} round />
+                        </LinkedinShareButton>
+                        <WhatsappShareButton
+                          url={
+                            article.web_url +
+                            " Shared from: https://euriskomobility.com/"
+                          }
+                          quote={"Eurisko News"}
+                        >
+                          <WhatsappIcon size={25} round />
+                        </WhatsappShareButton>
+                        <Chip
+                          label={article.document_type}
+                          size="small"
+                          sx={{ mb: 0.9, fontSize: 12 }}
+                        />
+                      </div>
+                    </CardActions>{" "}
                   </>
                 )}
               </Card>
