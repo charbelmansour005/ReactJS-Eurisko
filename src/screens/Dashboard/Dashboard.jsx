@@ -104,6 +104,7 @@ const Dashboard = () => {
             alignItems: "center",
             width: "100%",
           }}
+          // variant="outlined"
         >
           <MaterialUISwitch />
           <Divider
@@ -139,44 +140,43 @@ const Dashboard = () => {
         {filteredArticles.length ? (
           <div className={classes.article__flex}>
             {filteredArticles.map((article, index) => (
-              <Card key={article._id} sx={{ maxWidth: 345, m: 5 }}>
+              <Card key={article._id} sx={{ maxWidth: 345, m: 5, width: 400 }}>
                 <CardImage />
 
                 <CardInfo article={article} />
                 <CardActions>
-                  <RedditShareButton
-                    url={
-                      article.abstract +
-                      " Shared from: https://euriskomobility.com/"
-                    }
-                    quote={"Eurisko News"}
-                    style={{ margin: "1px" }}
-                  >
-                    <RedditIcon size={32} round />
-                  </RedditShareButton>
-                  <LinkedinShareButton
-                    url={
-                      article.abstract +
-                      " Shared from: https://euriskomobility.com/"
-                    }
-                    quote={"Eurisko News"}
-                    style={{ margin: "1px" }}
-                  >
-                    <LinkedinIcon size={32} round />
-                  </LinkedinShareButton>
-                  <WhatsappShareButton
-                    url={
-                      article.abstract +
-                      " Shared from: https://euriskomobility.com/"
-                    }
-                    quote={"Eurisko News"}
-                    style={{ margin: "1px" }}
-                  >
-                    <WhatsappIcon size={32} round />
-                  </WhatsappShareButton>
-                  <Button size="small" href={article.web_url}>
+                  <div className={classes.share__flex}>
+                    <RedditShareButton
+                      url={
+                        article.web_url +
+                        " Shared from: https://euriskomobility.com/"
+                      }
+                      quote={"Eurisko News"}
+                    >
+                      <RedditIcon size={25} round />
+                    </RedditShareButton>
+                    <LinkedinShareButton
+                      url={
+                        article.web_url +
+                        " Shared from: https://euriskomobility.com/"
+                      }
+                      quote={"Eurisko News"}
+                    >
+                      <LinkedinIcon size={25} round />
+                    </LinkedinShareButton>
+                    <WhatsappShareButton
+                      url={
+                        article.web_url +
+                        " Shared from: https://euriskomobility.com/"
+                      }
+                      quote={"Eurisko News"}
+                    >
+                      <WhatsappIcon size={25} round />
+                    </WhatsappShareButton>
+                  </div>
+                  {/* <Button size="small" href={article.web_url}>
                     Full Article
-                  </Button>
+                  </Button> */}
                 </CardActions>
                 {isActive === index ? (
                   <Tooltip title="Show less" placement="right">
@@ -202,8 +202,8 @@ const Dashboard = () => {
 
                 {isActive === index && (
                   <>
-                    <Typography variant="h6" sx={{ m: 1 }}>
-                      {article.source}
+                    <Typography variant="body1" sx={{ m: 2 }}>
+                      Published by {article.source}
                     </Typography>
                     <Typography
                       gutterBottom
@@ -213,6 +213,16 @@ const Dashboard = () => {
                     >
                       {article.abstract}
                     </Typography>
+                    <div style={{ display: "grid", alignItems: "center" }}>
+                      <Button
+                        sx={{ m: 2 }}
+                        size="small"
+                        variant="contained"
+                        href={article.web_url}
+                      >
+                        Read Full Article Here
+                      </Button>
+                    </div>
                   </>
                 )}
               </Card>

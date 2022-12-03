@@ -1,6 +1,8 @@
 .scroller {
   overflow: auto;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   margin: 0 auto;
   height: 70px;
-  width: 300px;
+  width: 200px;
 }

@@ -13,7 +13,12 @@ const CardInfo = ({ article }) => {
           Published on {article.pub_date.split("T")[0]}
         </Typography>
         <div className={classes.scroller}>
-          <Typography gutterBottom variant="body2" component="div">
+          <Typography
+            gutterBottom
+            variant="body2"
+            component="div"
+            sx={{ overflowWrap: "break-word", whiteSpace: "pre-wrap" }}
+          >
             {article.snippet}
           </Typography>
         </div>

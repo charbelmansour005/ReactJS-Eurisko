@@ -11,6 +11,7 @@ import FormLinks from "../../components/FormLinks/FormLinks";
 import LoginError from "../../components/LoginError/LoginError";
 import { imageURL } from "../../helpers/randomizer";
 import notifySuccess from "../../helpers/toasts/SuccessToast";
+import Grid from "@mui/material/Grid";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
@@ -41,62 +42,68 @@ const LoginScreen = () => {
 
   return (
     <div className={classes.Main__body}>
-      <Paper
+      {/* <Paper
         variant="elevation"
         sx={{
           paddingTop: 0,
           paddingBottom: 4,
-          width: 550,
+          width: "50%",
+          // width: 550,
         }}
-      >
-        {loading && <LinearProgress color="secondary" />}
-        <form>
-          <div className={classes.center__div}>
-            <img className={classes.main__image} src={imageURL} />
+      > */}
+      {loading && <LinearProgress color="secondary" />}
+      <form>
+        <div className={classes.center__div}>
+          <img className={classes.main__image} src={imageURL} />
+        </div>
+        <LoginError />
+        <div className={classes.center__div}>
+          <div className={classes.MobileCenter}>
+          <TextField
+            id="username"
+            label="Username"
+            variant="outlined"
+            sx={{ mb: 2, color: "black" }}
+            name="username"
+            autoFocus
+            required
+            margin="normal"
+            onChange={handleUsernameChange}
+            error={error ? true : false}
+            className={classes.InputMobile}
+          />
+          <TextField
+            id="filled-basic"
+            label="Password"
+            variant="outlined"
+            sx={{ mb: 2, color: "black" }}
+            type="password"
+            required
+            margin="normal"
+            onChange={handlePasswordChange}
+            error={error ? true : false}
+            className={classes.InputMobile}
+          />
           </div>
-          <LoginError />
           <div className={classes.center__div}>
-            <TextField
-              id="username"
-              label="Username"
-              variant="outlined"
-              sx={{ width: 350, mb: 2, color: "black" }}
-              name="username"
-              autoFocus
-              required
-              margin="normal"
-              onChange={handleUsernameChange}
-              error={error ? true : false}
-            />
-            <TextField
-              id="filled-basic"
-              label="Password"
-              variant="outlined"
-              sx={{ width: 350, mb: 2, color: "black" }}
-              type="password"
-              required
-              margin="normal"
-              onChange={handlePasswordChange}
-              error={error ? true : false}
-            />
-            <div className={classes.center__div}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, width: 350 }}
-                disabled={loading || !username.length || !password.length}
-                color="secondary"
-                onClick={handleLogin}
-              >
-                Login
-              </Button>
-            </div>
-            <FormLinks />
-            <Copyright />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, width: 350 }}
+              disabled={loading || !username.length || !password.length}
+              color="secondary"
+              onClick={handleLogin}
+              className={classes.ButtonMobile}
+            >
+              Login
+            </Button>
           </div>
-        </form>
-      </Paper>
+          <FormLinks />
+          <Copyright />
+        </div>
+      </form>
+      {/* </Paper> */}
     </div>
   );
 };
