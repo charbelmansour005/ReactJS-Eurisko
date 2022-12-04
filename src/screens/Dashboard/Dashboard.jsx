@@ -143,7 +143,7 @@ const Dashboard = () => {
           <DashCardSkeleton />
           <DashArticleError />
           {/* article cards */}
-          {filteredArticles.length ? (
+          {filteredArticles.length && article.loading === false ? (
             <div className={classes.article__flex}>
               {filteredArticles.map((article, index) => (
                 <Card

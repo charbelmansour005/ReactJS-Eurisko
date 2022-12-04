@@ -7,25 +7,34 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-// axios middleware - works
-// axios.defaults.headers.get["Authorization"] = `Bearer ${localStorage.getItem(
-//   "userToken"
-// )}`;
+/**
+ * axios.defaults.headers.post["Content-Type"] = `application/json`;
+ *
+ * Commented out since there is ONLY 1 post request (login)
+ * however this works, but must comment out the config in userActions.js first
+ */
 
-axios.interceptors.request.use((config) => {
-  console.log(config);
+axios.interceptors.request.use(
+  (req) => {
+    console.log(req);
+    req.headers["Authorization"] = `Bearer ${localStorage.getItem(
+      "userToken"
+    )}`;
+    return req;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-  config.headers["Authorization"] = `Bearer ${localStorage.getItem(
-    "userToken"
-  )}`;
-
-  return config;
-});
-
-axios.interceptors.response.use((response) => {
-  // console.log(response)
-  return response;
-});
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
