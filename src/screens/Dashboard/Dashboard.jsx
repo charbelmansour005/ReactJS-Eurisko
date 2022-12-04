@@ -151,6 +151,7 @@ const Dashboard = () => {
                 <Card
                   key={article._id}
                   sx={{ maxWidth: 345, m: 5, width: 400 }}
+                  variant="outlined"
                 >
                   {isActive === index ? (
                     <Tooltip

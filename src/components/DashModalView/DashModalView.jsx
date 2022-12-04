@@ -30,9 +30,9 @@ const DashModalView = ({ article }) => {
         style={{
           overflow: "auto",
           height: "205px",
-          border: "1px solid lightgray",
-          borderRadius: "3px",
-          padding: "5px",
+          // border: "1px solid lightgray",
+          // borderRight: "1px solid lightgray",
+          padding: "3px",
           margin: "10px",
         }}
       >
@@ -40,19 +40,33 @@ const DashModalView = ({ article }) => {
           gutterBottom
           variant="body2"
           component="div"
-          sx={{ m: 2, textAlign: "start" }}
+          sx={{ m: 1, textAlign: "start" }}
         >
-          {article.abstract.length ? (
+          {article.abstract.length > 50 ? (
             article.abstract
           ) : (
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ textAlign: "center" }}
+            <div
+              style={{
+                display: "grid",
+                justifyContent: "center",
+                alignItems: "center",
+                // backgroundColor: "gray",
+                border: "1px solid lightgray",
+                borderRadius: "3px",
+                padding: "5px",
+              }}
             >
-              Please visit <strong>NY Post</strong> to view the{" "}
-              {article.document_type} by clicking the big blue button below
-            </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{
+                  textAlign: "center",
+                }}
+              >
+                Please click the button below to see your desired{" "}
+                {article.document_type}
+              </Typography>
+            </div>
           )}
         </Typography>
       </div>
