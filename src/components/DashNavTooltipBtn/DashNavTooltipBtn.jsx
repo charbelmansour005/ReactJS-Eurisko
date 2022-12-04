@@ -1,13 +1,12 @@
 import classes from "./DashNavTooltipBtn.module.css";
 import { toggleTooltip } from "../../features/tooltip/tooltipSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { IconButton, Tooltip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
-const DashNavTooltipBtn = () => {
-  const tooltip = useSelector((state) => state.tooltip);
+const DashNavTooltipBtn = ({ tooltip }) => {
   const dispatch = useDispatch();
-  const handleTooltip = () => dispatch(toggleTooltip());
+  const handleToggleTooltip = () => dispatch(toggleTooltip());
   return (
     <div className={classes.responsive__tooltip}>
       <Tooltip
@@ -16,7 +15,7 @@ const DashNavTooltipBtn = () => {
       >
         <IconButton
           sx={{ ml: 2, mr: 2 }}
-          onClick={handleTooltip}
+          onClick={handleToggleTooltip}
           color={tooltip.disabled ? "" : "primary"}
         >
           <InfoIcon />

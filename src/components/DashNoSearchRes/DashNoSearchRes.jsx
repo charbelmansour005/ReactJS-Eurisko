@@ -4,7 +4,7 @@ import classes from "./DashNoSearchRes.module.css";
 const DashNoSearchRes = () => {
   return (
     <div className={classes.condensed}>
-      <Alert severity="info">No articles match your search criteria</Alert>
+      <Alert severity="info">Nothing was found...</Alert>
     </div>
   );
 };

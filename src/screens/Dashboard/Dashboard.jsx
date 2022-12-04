@@ -106,11 +106,11 @@ const Dashboard = () => {
             <div className={classes.responsive__navbar}>
               <DashSearchDivider />
             </div>
-            <DashNavLogoutButton />
+            <DashNavLogoutButton tooltip={tooltip} />
             <div className={classes.responsive__navbar}>
               <DashSearchDivider />
             </div>
-            <DashNavTooltipBtn />
+            <DashNavTooltipBtn tooltip={tooltip} />
             <DashSearchDivider />
             <div className={classes.responsive__searchIcon}>
               <SearchIcon />
@@ -140,10 +140,10 @@ const Dashboard = () => {
           </Paper>
         </div>
         <div>
-          <DashCardSkeleton />
-          <DashArticleError />
+          {article.loading && <DashCardSkeleton article={article} />}
+          <DashArticleError article={article} />
           {/* article cards */}
-          {filteredArticles.length && article.loading === false ? (
+          {filteredArticles.length ? (
             <div className={classes.article__flex}>
               {filteredArticles.map((article, index) => (
                 <Card
@@ -192,7 +192,10 @@ const Dashboard = () => {
                       />
                       <CardActions>
                         <div className={classes.share__flex}>
-                          <DashShareButtons article={article} />
+                          <DashShareButtons
+                            article={article}
+                            tooltip={tooltip}
+                          />
                           <Chip
                             label={article.document_type}
                             size="small"
@@ -212,6 +215,7 @@ const Dashboard = () => {
           )}
         </div>
         <div className={classes.center__navigation}>
+          {/* disable buttons when necessary */}
           <button
             className={classes.nav__button}
             onClick={handlePageDown}

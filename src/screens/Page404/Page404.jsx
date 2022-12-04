@@ -1,9 +1,10 @@
 import React from "react";
 import classes from "./Page404.module.css";
-import Page404ErrorLinks from "../../components/Page404ErrorLinks/Page404ErrorLinks";
 import { Paper } from "@mui/material";
 import { color, variant, chosenClassName } from "../../helpers/randomizer";
+// components
 import Copyright from "../../components/Copyright/Copyright";
+import Page404ErrorLinks from "../../components/Page404ErrorLinks/Page404ErrorLinks";
 
 const NotFound = () => {
   return (

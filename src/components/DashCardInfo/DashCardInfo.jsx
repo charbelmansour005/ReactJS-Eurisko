@@ -32,7 +32,6 @@ const DashCardInfo = ({ article }) => {
               }}
             >
               Click on dropdown for Info
-              {/* Click on dropdown for {article.document_type} */}
             </Typography>
           )}
         </Typography>

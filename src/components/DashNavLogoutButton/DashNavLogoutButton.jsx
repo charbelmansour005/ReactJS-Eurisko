@@ -1,11 +1,10 @@
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../features/user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Tooltip } from "@mui/material";
 
-const DashNavLogoutButton = () => {
-  const tooltip = useSelector((state) => state.tooltip);
+const DashNavLogoutButton = ({tooltip}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {

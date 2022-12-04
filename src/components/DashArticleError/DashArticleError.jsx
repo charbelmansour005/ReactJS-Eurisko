@@ -1,10 +1,8 @@
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import classes from "./DashArticleError.module.css";
-import { useSelector } from "react-redux";
 
-const DashArticleError = () => {
-  const article = useSelector((state) => state.article);
+const DashArticleError = ({article}) => {
   return (
     <div className={classes.container__div}>
       {article.error && (

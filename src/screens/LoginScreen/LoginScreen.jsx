@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/user/userActions";
-import Copyright from "../../components/Copyright/Copyright";
 // mui & style
+import { LinearProgress } from "@mui/material";
 import classes from "./LoginScreen.module.css";
-import { TextField, LinearProgress, Button } from "@mui/material";
-import LoginFormLinks from "../../components/LoginFormLinks/LoginFormLinks";
-import LoginError from "../../components/LoginError/LoginError";
+// helpers
 import { imageURL } from "../../helpers/randomizer";
 import notifySuccess from "../../helpers/toasts/SuccessToast";
+// components
 import LoginTextFields from "../../components/LoginTextFields/LoginTextFields";
 import LoginSubmitBtn from "../../components/LoginSubmitBtn/LoginSubmitBtn";
+import LoginError from "../../components/LoginError/LoginError";
+import LoginFormLinks from "../../components/LoginFormLinks/LoginFormLinks";
+import Copyright from "../../components/Copyright/Copyright";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);
