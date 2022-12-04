@@ -9,7 +9,7 @@ const DashNavLogoutButton = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/login");
+    navigate("/");
   };
 
   return (
