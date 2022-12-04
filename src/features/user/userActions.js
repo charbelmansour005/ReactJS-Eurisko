@@ -1,23 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { SIGN_IN_URL } from "../../services/url";
 
 export const userLogin = createAsyncThunk(
   "user/login",
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      // configure header's Content-Type as JSON
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // };
-
-      const { data } = await axios.post(
-        `${SIGN_IN_URL}`,
-        { username, password }
-        // config
-      );
+      const { data } = await axios.post(`/auth/signin`, { username, password });
 
       // store user's token in local storage
       localStorage.setItem("userToken", data.accessToken);

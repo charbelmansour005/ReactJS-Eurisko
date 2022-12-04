@@ -7,9 +7,7 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-/*
- * overkill since there is ONLY 1 post request (login)
- */
+axios.defaults.baseURL = "http://34.245.213.76:3000";
 axios.defaults.headers.post["Content-Type"] = `application/json`;
 
 axios.interceptors.request.use(
