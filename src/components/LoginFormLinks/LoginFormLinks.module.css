@@ -13,3 +13,14 @@
     align-items: center;
   }
 }
+
+.resp {
+  display: grid;
+}
+
+@media (max-width: 767px) {
+  .resp {
+    display: grid;
+    margin: 5%;
+  }
+}

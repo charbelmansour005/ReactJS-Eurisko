@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { Skeleton } from "@mui/material";
 import classes from "./DashCardSkeleton.module.css";
 import { useSelector } from "react-redux";

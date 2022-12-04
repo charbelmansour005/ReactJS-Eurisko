@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../features/user/userSlice";
@@ -15,23 +14,21 @@ const DashNavLogoutButton = () => {
   };
 
   return (
-    <Fragment>
-      <Tooltip
-        title="Logout"
-        placement="bottom"
-        disableHoverListener={tooltip.disabled}
+    <Tooltip
+      title="Logout"
+      placement="bottom"
+      disableHoverListener={tooltip.disabled}
+    >
+      <Button
+        sx={{ mr: "3%", ml: "3%" }}
+        variant="outlined"
+        onClick={handleLogout}
+        size="small"
+        color="warning"
       >
-        <Button
-          sx={{ mr: "3%", ml: "3%" }}
-          variant="outlined"
-          onClick={handleLogout}
-          size="small"
-          color="error"
-        >
-          Logout
-        </Button>
-      </Tooltip>
-    </Fragment>
+        Logout
+      </Button>
+    </Tooltip>
   );
 };
 

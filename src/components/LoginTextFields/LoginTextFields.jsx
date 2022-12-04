@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { TextField } from "@mui/material";
 import classes from "./LoginTextFields.module.css";
@@ -7,7 +7,7 @@ const LoginTextFields = ({ handleUsernameChange, handlePasswordChange }) => {
   const { error } = useSelector((state) => state.user);
 
   return (
-    <>
+    <Fragment>
       <TextField
         id="username"
         label="Username"
@@ -33,7 +33,7 @@ const LoginTextFields = ({ handleUsernameChange, handlePasswordChange }) => {
         error={error ? true : false}
         className={classes.InputMobile}
       />
-    </>
+    </Fragment>
   );
 };
 

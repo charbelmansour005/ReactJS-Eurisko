@@ -1,4 +1,3 @@
-import React from "react";
 import Alert from "@mui/material/Alert";
 import classes from "./DashNoSearchRes.module.css";
 

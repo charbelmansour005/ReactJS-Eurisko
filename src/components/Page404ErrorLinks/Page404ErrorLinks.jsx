@@ -10,16 +10,12 @@ const Page404ErrorLinks = () => {
 
   const handleHomeRedirect = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      navigate("/dashboard");
-    }, 200);
+    navigate("/dashboard");
   };
 
   const handleLoginRedirect = () => {
     setIsLoading(true);
-    setTimeout(() => {
-      navigate("/");
-    }, 200);
+    navigate("/");
   };
 
   return (

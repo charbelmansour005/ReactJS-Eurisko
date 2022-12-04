@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./DashNavTooltipBtn.module.css";
 import { toggleTooltip } from "../../features/tooltip/tooltipSlice";
 import { useSelector, useDispatch } from "react-redux";

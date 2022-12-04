@@ -1,19 +1,20 @@
-import React, { Fragment } from "react";
 import { Link, Grid } from "@mui/material";
 import classes from "./LoginFormLinks.module.css";
 
 const LoginFormLinks = () => {
   return (
-    <Fragment>
-      <Grid container className={classes.center__div}>
-        <Grid item xs>
+    <Grid container className={classes.center__div}>
+      <Grid item xs>
+        <div className={classes.resp}>
           <Link variant="body2">Forgot password?</Link>
-        </Grid>
-        <Grid item>
-          <Link variant="body2">{"Don't have an account? Sign Up"}</Link>
-        </Grid>
+        </div>
       </Grid>
-    </Fragment>
+      <Grid item>
+        <div className={classes.resp}>
+          <Link variant="body2">{"Don't have an account? Sign Up"}</Link>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 
