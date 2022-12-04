@@ -14,9 +14,8 @@ const DashShareButtons = ({ article }) => {
   const tooltip = useSelector((state) => state.tooltip);
   return (
     <>
-      {" "}
       <Tooltip
-        title="Share"
+        title="Share on Reddit"
         placement="left"
         disableHoverListener={tooltip.disabled}
       >
@@ -28,7 +27,7 @@ const DashShareButtons = ({ article }) => {
         </RedditShareButton>
       </Tooltip>
       <Tooltip
-        title="Share"
+        title="Share on Linkedin"
         placement="bottom"
         disableHoverListener={tooltip.disabled}
       >
@@ -40,7 +39,7 @@ const DashShareButtons = ({ article }) => {
         </LinkedinShareButton>
       </Tooltip>
       <Tooltip
-        title="Share"
+        title="Share on Whatsapp"
         placement="bottom"
         disableHoverListener={tooltip.disabled}
       >

@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  .MobileCenter {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .InputMobile {
+    max-width: 50vw;
+  }
+  .ButtonMobile {
+    max-width: 50vw;
+  }
+}
