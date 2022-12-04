@@ -4,7 +4,7 @@ import classes from "./DashModalView.module.css";
 
 const DashModalView = ({ article }) => {
   return (
-    <>
+    <React.Fragment>
       {" "}
       <Typography variant="body1" sx={{ m: 2, textAlign: "start" }}>
         Published by {article.source}
@@ -35,7 +35,7 @@ const DashModalView = ({ article }) => {
           {`View ${article.document_type} on nypost`}
         </Button>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

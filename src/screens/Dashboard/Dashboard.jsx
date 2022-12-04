@@ -142,6 +142,7 @@ const Dashboard = () => {
         <div>
           <DashCardSkeleton />
           <DashArticleError />
+          {/* article cards */}
           {filteredArticles.length ? (
             <div className={classes.article__flex}>
               {filteredArticles.map((article, index) => (
@@ -179,6 +180,7 @@ const Dashboard = () => {
                     </Tooltip>
                   )}
                   {isActive === index ? (
+                    // flip an article card
                     <DashModalView article={article} />
                   ) : (
                     <>
@@ -205,6 +207,7 @@ const Dashboard = () => {
               ))}
             </div>
           ) : (
+            // if there are no search results
             <DashNoSearchRes />
           )}
         </div>
