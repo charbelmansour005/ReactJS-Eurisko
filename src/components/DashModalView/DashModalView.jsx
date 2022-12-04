@@ -32,7 +32,7 @@ const DashModalView = ({ article }) => {
           variant="contained"
           href={article.web_url}
         >
-          {`View full ${article.document_type} on nypost`}
+          {`View ${article.document_type} on nypost`}
         </Button>
       </div>
     </>

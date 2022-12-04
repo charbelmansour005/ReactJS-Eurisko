@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import PullToRefresh from "react-simple-pull-to-refresh";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+// redux
 import {
   searchByContent,
   incrementPage,
   decrementPage,
 } from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
+import { useDispatch, useSelector } from "react-redux";
+// css module
 import classes from "./Dashboard.module.css";
+// material ui
 import {
   Paper,
   InputBase,
@@ -19,13 +22,14 @@ import {
   Tooltip,
   Chip,
 } from "@mui/material";
+// material icons
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-// components
+// dashboard components
 import DashCardImage from "../../components/DashCardImage/DashCardImage";
 import DashCardInfo from "../../components/DashCardInfo/DashCardInfo";
 import DashNavLogoutButton from "../../components/DashNavLogoutButton/DashNavLogoutButton";
@@ -34,7 +38,7 @@ import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import DashCardSkeleton from "../../components/DashCardSkeleton/DashCardSkeleton";
 import DashNoSearchRes from "../../components/DashNoSearchRes/DashNoSearchRes";
 import DashShareButtons from "../../components/DashShareButtons/DashShareButtons";
-import DashNavTooltip from "../../components/DashNavTooltip/DashNavTooltip";
+import DashNavTooltipBtn from "../../components/DashNavTooltipBtn/DashNavTooltipBtn";
 import DashModalView from "../../components/DashModalView/DashModalView";
 import DashSearchDivider from "../../components/DashSearchDivider/DashSearchDivider";
 
@@ -106,7 +110,7 @@ const Dashboard = () => {
             <div className={classes.responsive__navbar}>
               <DashSearchDivider />
             </div>
-            <DashNavTooltip />
+            <DashNavTooltipBtn />
             <DashSearchDivider />
             <div className={classes.responsive__searchIcon}>
               <SearchIcon />
@@ -190,6 +194,7 @@ const Dashboard = () => {
                           <Chip
                             label={article.document_type}
                             size="small"
+                            variant="outlined"
                             sx={{ mb: 0.9, fontSize: 12 }}
                           />
                         </div>
@@ -216,7 +221,7 @@ const Dashboard = () => {
             onClick={handlePageUp}
             disabled={article.page === 2 || searchTerm.length}
           >
-            <NavigateNextIcon />
+            <NavigateNextIcon variant="primary" />
           </button>
         </div>
       </div>

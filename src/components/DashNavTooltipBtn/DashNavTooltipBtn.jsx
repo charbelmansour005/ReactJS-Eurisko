@@ -1,11 +1,11 @@
 import React from "react";
-import classes from "./DashNavTooltip.module.css";
+import classes from "./DashNavTooltipBtn.module.css";
 import { toggleTooltip } from "../../features/tooltip/tooltipSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { IconButton, Tooltip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
-const DashNavTooltip = () => {
+const DashNavTooltipBtn = () => {
   const tooltip = useSelector((state) => state.tooltip);
   const dispatch = useDispatch();
   const handleTooltip = () => dispatch(toggleTooltip());
@@ -27,4 +27,4 @@ const DashNavTooltip = () => {
   );
 };
 
-export default DashNavTooltip;
+export default DashNavTooltipBtn;
