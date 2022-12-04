@@ -30,8 +30,6 @@ const DashModalView = ({ article }) => {
         style={{
           overflow: "auto",
           height: "205px",
-          // border: "1px solid lightgray",
-          // borderRight: "1px solid lightgray",
           padding: "3px",
           margin: "10px",
         }}
@@ -46,37 +44,7 @@ const DashModalView = ({ article }) => {
             article.abstract
           ) : (
             <>
-              <div
-                style={{
-                  display: "grid",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  // backgroundColor: "gray",
-                  border: "1px solid lightgray",
-                  borderRadius: "3px",
-                  padding: "5px",
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{
-                    textAlign: "start",
-                  }}
-                >
-                  Please click the button below to see your desired{" "}
-                  {article.document_type}.
-                </Typography>
-              </div>
-              <div
-                style={{
-                  display: "grid",
-                  border: "1px solid lightgray",
-                  borderRadius: "3px",
-                  padding: "5px",
-                  marginTop: "10px",
-                }}
-              >
+              <div className={classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -87,15 +55,7 @@ const DashModalView = ({ article }) => {
                   {article.type_of_material} material
                 </Typography>
               </div>
-              <div
-                style={{
-                  display: "grid",
-                  border: "1px solid lightgray",
-                  borderRadius: "3px",
-                  padding: "5px",
-                  marginTop: "10px",
-                }}
-              >
+              <div className={classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -108,15 +68,7 @@ const DashModalView = ({ article }) => {
                     : `${article.word_count} word count`}
                 </Typography>
               </div>
-              <div
-                style={{
-                  display: "grid",
-                  border: "1px solid lightgray",
-                  borderRadius: "3px",
-                  padding: "5px",
-                  marginTop: "10px",
-                }}
-              >
+              <div className={classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -127,6 +79,17 @@ const DashModalView = ({ article }) => {
                   {article.section_name
                     ? `Section: ${article.section_name}`
                     : `Unspecified section`}
+                </Typography>
+              </div>
+              <div className={classes.box}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  Click below to see {article.document_type}
                 </Typography>
               </div>
             </>
