@@ -140,10 +140,12 @@ const Dashboard = () => {
           </Paper>
         </div>
         <div>
-          {article.loading && <DashCardSkeleton article={article} />}
+          {article.loading && !article.error && (
+            <DashCardSkeleton article={article} />
+          )}
           <DashArticleError article={article} />
           {/* article cards */}
-          {filteredArticles.length ? (
+          {filteredArticles.length && !article.error ? (
             <div className={classes.article__flex}>
               {filteredArticles.map((article, index) => (
                 <Card

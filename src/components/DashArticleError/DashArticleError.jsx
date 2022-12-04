@@ -1,17 +1,20 @@
 import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import classes from "./DashArticleError.module.css";
 
-const DashArticleError = ({article}) => {
+const DashArticleError = ({ article }) => {
   return (
     <div className={classes.container__div}>
       {article.error && (
-        <h2 className={classes.center}>
+        <div className={classes.center}>
           <Alert severity="error">
-            <AlertTitle>Error</AlertTitle>
-            {article.error} — <strong>try again later</strong>
+            {article.error} —
+            <strong>
+              {article.error === "Network Error"
+                ? " Please make sure you have a stable internet connection"
+                : "There was an error"}
+            </strong>
           </Alert>
-        </h2>
+        </div>
       )}
     </div>
   );
