@@ -45,28 +45,91 @@ const DashModalView = ({ article }) => {
           {article.abstract.length > 50 ? (
             article.abstract
           ) : (
-            <div
-              style={{
-                display: "grid",
-                justifyContent: "center",
-                alignItems: "center",
-                // backgroundColor: "gray",
-                border: "1px solid lightgray",
-                borderRadius: "3px",
-                padding: "5px",
-              }}
-            >
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{
-                  textAlign: "center",
+            <>
+              <div
+                style={{
+                  display: "grid",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  // backgroundColor: "gray",
+                  border: "1px solid lightgray",
+                  borderRadius: "3px",
+                  padding: "5px",
                 }}
               >
-                Please click the button below to see your desired{" "}
-                {article.document_type}
-              </Typography>
-            </div>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  Please click the button below to see your desired{" "}
+                  {article.document_type}.
+                </Typography>
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  border: "1px solid lightgray",
+                  borderRadius: "3px",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  {article.type_of_material} material
+                </Typography>
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  border: "1px solid lightgray",
+                  borderRadius: "3px",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  {article.word_count === 0
+                    ? `Imagery/Audio`
+                    : `${article.word_count} word count`}
+                </Typography>
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  border: "1px solid lightgray",
+                  borderRadius: "3px",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  {article.section_name
+                    ? `Section: ${article.section_name}`
+                    : `Unspecified section`}
+                </Typography>
+              </div>
+            </>
           )}
         </Typography>
       </div>
