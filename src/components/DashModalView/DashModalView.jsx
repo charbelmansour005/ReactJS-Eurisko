@@ -7,7 +7,7 @@ const DashModalView = ({ article }) => {
     <React.Fragment>
       {" "}
       <Typography variant="body1" sx={{ m: 2, textAlign: "start" }}>
-        Published by {article.source}
+        {article.source}
       </Typography>
       <Typography
         variant="body2"
@@ -16,14 +16,44 @@ const DashModalView = ({ article }) => {
       >
         On {article.pub_date.split("T")[0]}
       </Typography>
-      <div style={{ overflow: "auto", height: "250px" }}>
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        sx={{ ml: 2, mb: 2, mr: 2, textAlign: "start" }}
+      >
+        {article.byline.original == "null" ||
+        article.byline.original?.includes("None")
+          ? "Unknown Author"
+          : article.byline.original}
+      </Typography>
+      <div
+        style={{
+          overflow: "auto",
+          height: "205px",
+          border: "1px solid lightgray",
+          borderRadius: "3px",
+          padding: "5px",
+          margin: "10px",
+        }}
+      >
         <Typography
           gutterBottom
           variant="body2"
           component="div"
           sx={{ m: 2, textAlign: "start" }}
         >
-          {article.abstract}
+          {article.abstract.length ? (
+            article.abstract
+          ) : (
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ textAlign: "center" }}
+            >
+              Please visit <strong>NY Post</strong> to view the{" "}
+              {article.document_type} by clicking the big blue button below
+            </Typography>
+          )}
         </Typography>
       </div>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="horizontal" />
