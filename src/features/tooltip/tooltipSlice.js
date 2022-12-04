@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  disabled: true,
+  disabled: false,
 };
 
 export const tooltipSlice = createSlice({

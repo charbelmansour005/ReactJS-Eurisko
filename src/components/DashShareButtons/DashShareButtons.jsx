@@ -16,7 +16,7 @@ const DashShareButtons = ({ article }) => {
     <>
       <Tooltip
         title="Share on Reddit"
-        placement="left"
+        placement="bottom"
         disableHoverListener={tooltip.disabled}
       >
         <RedditShareButton

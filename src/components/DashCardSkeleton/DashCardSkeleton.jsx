@@ -8,12 +8,11 @@ const DashCardSkeleton = () => {
   const article = useSelector((state) => state.article);
   const n = article.articles.length;
   return (
-    <Fragment>
+    <Fragment key={uuidv4()}>
       {article.loading && (
         <div className={classes.skeleton__flex}>
           {[...Array(n)].map(() => (
             <Skeleton
-              key={uuidv4()}
               animation="wave"
               variant="rectangular"
               width={340}

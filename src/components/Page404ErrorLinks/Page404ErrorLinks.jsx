@@ -18,7 +18,7 @@ const Page404ErrorLinks = () => {
   const handleLoginRedirect = () => {
     setIsLoading(true);
     setTimeout(() => {
-      navigate("/login");
+      navigate("/");
     }, 200);
   };
 

@@ -8,7 +8,7 @@ import Page404 from "../screens/Page404/Page404";
 export const RoutesAsObj = () => {
   let element = useRoutes([
     { path: "/dashboard", element: <Dashboard /> },
-    { path: "/login", element: <LoginScreen /> },
+    { path: "/", element: <LoginScreen /> },
     { path: "*", element: <Page404 /> },
   ]);
   return <Fragment>{element}</Fragment>;

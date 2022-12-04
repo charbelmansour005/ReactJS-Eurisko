@@ -28,13 +28,13 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 // components
 import DashCardImage from "../../components/DashCardImage/DashCardImage";
 import DashCardInfo from "../../components/DashCardInfo/DashCardInfo";
-import DashLogoutButton from "../../components/DashLogoutButton/DashLogoutButton";
+import DashNavLogoutButton from "../../components/DashNavLogoutButton/DashNavLogoutButton";
 import DashArticleError from "../../components/DashArticleError/DashArticleError";
 import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import DashCardSkeleton from "../../components/DashCardSkeleton/DashCardSkeleton";
 import DashNoSearchRes from "../../components/DashNoSearchRes/DashNoSearchRes";
 import DashShareButtons from "../../components/DashShareButtons/DashShareButtons";
-import DashTooltip from "../../components/DashTooltip/DashTooltip";
+import DashNavTooltip from "../../components/DashNavTooltip/DashNavTooltip";
 import DashModalView from "../../components/DashModalView/DashModalView";
 import DashSearchDivider from "../../components/DashSearchDivider/DashSearchDivider";
 
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
   const authRedirect = () => {
     if (!userInfo) {
-      navigate("/login");
+      navigate("/");
     } else return;
   };
 
@@ -102,11 +102,11 @@ const Dashboard = () => {
             <div className={classes.responsive__navbar}>
               <DashSearchDivider />
             </div>
-            <DashLogoutButton />
+            <DashNavLogoutButton />
             <div className={classes.responsive__navbar}>
               <DashSearchDivider />
             </div>
-            <DashTooltip />
+            <DashNavTooltip />
             <DashSearchDivider />
             <div className={classes.responsive__searchIcon}>
               <SearchIcon />
