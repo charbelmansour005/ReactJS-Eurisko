@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { Fragment } from "react";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme, lightTheme } from "./assets/theme/theme";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { CssBaseline } from "@mui/material";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Fragment>
       <ThemeProvider theme={theme.darkTheme ? darkTheme : lightTheme}>
-        <CssBaseline />
+        <CssBaseline enableColorScheme />
         <RoutesAsObj />
       </ThemeProvider>
       <ToastContainer />

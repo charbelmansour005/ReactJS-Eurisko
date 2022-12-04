@@ -1,0 +1,4 @@
+.grid__button {
+  display: grid;
+  align-items: center;
+}

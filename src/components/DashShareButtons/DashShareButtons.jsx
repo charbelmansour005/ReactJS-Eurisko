@@ -7,29 +7,50 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share";
+import { Tooltip } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const DashShareButtons = ({ article }) => {
+  const tooltip = useSelector((state) => state.tooltip);
   return (
     <>
       {" "}
-      <RedditShareButton
-        url={article.web_url + " Shared from: https://euriskomobility.com/"}
-        quote={"Eurisko News"}
+      <Tooltip
+        title="Share"
+        placement="left"
+        disableHoverListener={tooltip.disabled}
       >
-        <RedditIcon size={25} round />
-      </RedditShareButton>
-      <LinkedinShareButton
-        url={article.web_url + " Shared from: https://euriskomobility.com/"}
-        quote={"Eurisko News"}
+        <RedditShareButton
+          url={article.web_url + " Shared from: https://euriskomobility.com/"}
+          quote={"Eurisko News"}
+        >
+          <RedditIcon size={25} round />
+        </RedditShareButton>
+      </Tooltip>
+      <Tooltip
+        title="Share"
+        placement="bottom"
+        disableHoverListener={tooltip.disabled}
       >
-        <LinkedinIcon size={25} round />
-      </LinkedinShareButton>
-      <WhatsappShareButton
-        url={article.web_url + " Shared from: https://euriskomobility.com/"}
-        quote={"Eurisko News"}
+        <LinkedinShareButton
+          url={article.web_url + " Shared from: https://euriskomobility.com/"}
+          quote={"Eurisko News"}
+        >
+          <LinkedinIcon size={25} round />
+        </LinkedinShareButton>
+      </Tooltip>
+      <Tooltip
+        title="Share"
+        placement="bottom"
+        disableHoverListener={tooltip.disabled}
       >
-        <WhatsappIcon size={25} round />
-      </WhatsappShareButton>
+        <WhatsappShareButton
+          url={article.web_url + " Shared from: https://euriskomobility.com/"}
+          quote={"Eurisko News"}
+        >
+          <WhatsappIcon size={25} round />
+        </WhatsappShareButton>
+      </Tooltip>
     </>
   );
 };

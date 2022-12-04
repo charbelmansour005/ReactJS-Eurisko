@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PullToRefresh from "react-simple-pull-to-refresh";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -6,30 +7,24 @@ import {
   incrementPage,
   decrementPage,
 } from "../../features/article/articleSlice";
-import { toggleTooltip } from "../../features/tooltip/tooltipSlice";
 import { fetchArticles } from "../../features/article/articleActions";
-// search input
 import classes from "./Dashboard.module.css";
 import {
   Paper,
   InputBase,
   Divider,
   IconButton,
-  Button,
   CardActions,
   Card,
   Tooltip,
-  Typography,
   Chip,
 } from "@mui/material";
-// icons
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import InfoIcon from "@mui/icons-material/Info";
 // components
 import DashCardImage from "../../components/DashCardImage/DashCardImage";
 import DashCardInfo from "../../components/DashCardInfo/DashCardInfo";
@@ -39,8 +34,9 @@ import MaterialUISwitch from "../../components/MUITheme/MaterialUISwitch";
 import DashCardSkeleton from "../../components/DashCardSkeleton/DashCardSkeleton";
 import DashNoSearchRes from "../../components/DashNoSearchRes/DashNoSearchRes";
 import DashShareButtons from "../../components/DashShareButtons/DashShareButtons";
-import PullToRefresh from "react-simple-pull-to-refresh";
 import DashTooltip from "../../components/DashTooltip/DashTooltip";
+import DashModalView from "../../components/DashModalView/DashModalView";
+import DashSearchDivider from "../../components/DashSearchDivider/DashSearchDivider";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -54,12 +50,9 @@ const Dashboard = () => {
   const article = useSelector((state) => state.article);
   const page = useSelector((state) => state.article.page);
   const tooltip = useSelector((state) => state.tooltip);
-  // ...javascript state gets lost on reload
-  // to NOT avoid that: const userInfo = localStorage.getItem("userToken")
   const { userInfo } = useSelector((state) => state.user);
 
   const authRedirect = () => {
-    // console.log(userInfo);
     if (!userInfo) {
       navigate("/login");
     } else return;
@@ -80,8 +73,6 @@ const Dashboard = () => {
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
-
-  const handleTooltip = () => dispatch(toggleTooltip());
   const handleRefresh = () => dispatch(fetchArticles());
   const handleClearSearch = () => setSearchTerm(``);
   const handlePageUp = () => dispatch(incrementPage());
@@ -97,7 +88,6 @@ const Dashboard = () => {
         <div className={classes.top__center}>
           <Paper
             elevation={3}
-            // variant="outlined"
             component="form"
             sx={{
               p: "2px 4px",
@@ -110,20 +100,14 @@ const Dashboard = () => {
               <MaterialUISwitch />
             </div>
             <div className={classes.responsive__navbar}>
-              <Divider
-                sx={{ height: 28, mr: "0.5vw", ml: "0.5vw" }}
-                orientation="vertical"
-              />
+              <DashSearchDivider />
             </div>
             <DashLogoutButton />
             <div className={classes.responsive__navbar}>
-              <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+              <DashSearchDivider />
             </div>
             <DashTooltip />
-            <Divider
-              sx={{ height: 28, ml: 0.5, mr: 0.5 }}
-              orientation="vertical"
-            />
+            <DashSearchDivider />
             <div className={classes.responsive__searchIcon}>
               <SearchIcon />
             </div>
@@ -161,72 +145,37 @@ const Dashboard = () => {
                   key={article._id}
                   sx={{ maxWidth: 345, m: 5, width: 400 }}
                 >
-                  <>
-                    {isActive === index ? (
-                      <Tooltip
-                        title="Show less"
-                        placement="top"
-                        disableHoverListener={tooltip.disabled}
-                      >
-                        <IconButton
-                          sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
-                          aria-label="menu"
-                          onClick={hanldeModalClose}
-                        >
-                          <ExpandLessIcon />
-                        </IconButton>
-                      </Tooltip>
-                    ) : (
-                      <Tooltip
-                        title="Show more"
-                        placement="top"
-                        disableHoverListener={tooltip.disabled}
-                      >
-                        <IconButton
-                          sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
-                          aria-label="menu"
-                          onClick={() => setIsActive(index)}
-                        >
-                          <ExpandMoreIcon />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                  </>
                   {isActive === index ? (
-                    <>
-                      <Typography variant="body1" sx={{ m: 2 }}>
-                        Published by {article.source}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ ml: 2, mb: 2, mr: 2 }}
+                    <Tooltip
+                      title="Show less"
+                      placement="top"
+                      disableHoverListener={tooltip.disabled}
+                    >
+                      <IconButton
+                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                        aria-label="menu"
+                        onClick={hanldeModalClose}
                       >
-                        On {article.pub_date.split("T")[0]}
-                      </Typography>
-                      <Typography
-                        gutterBottom
-                        variant="body2"
-                        component="div"
-                        sx={{ m: 2 }}
+                        <ExpandLessIcon />
+                      </IconButton>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip
+                      title="Show more"
+                      placement="top"
+                      disableHoverListener={tooltip.disabled}
+                    >
+                      <IconButton
+                        sx={{ p: "10px", mr: 0, ml: "auto", float: "right" }}
+                        aria-label="menu"
+                        onClick={() => setIsActive(index)}
                       >
-                        {article.abstract}
-                      </Typography>
-                      <Divider
-                        sx={{ height: 28, m: 0.5 }}
-                        orientation="horizontal"
-                      />
-                      <div style={{ display: "grid", alignItems: "center" }}>
-                        <Button
-                          sx={{ m: 2 }}
-                          size="small"
-                          variant="contained"
-                          href={article.web_url}
-                        >
-                          See on nypost
-                        </Button>
-                      </div>
-                    </>
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </Tooltip>
+                  )}
+                  {isActive === index ? (
+                    <DashModalView article={article} />
                   ) : (
                     <>
                       <DashCardImage />
