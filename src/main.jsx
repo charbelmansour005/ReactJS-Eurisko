@@ -7,18 +7,20 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-// initiate accessToken
-// let accessToken = localStorage.getItem("userToken");
+// axios middleware - works
+// axios.defaults.headers.get["Authorization"] = `Bearer ${localStorage.getItem(
+//   "userToken"
+// )}`;
 
-// using interceptor on get requests - not login
-// axios.interceptors.request.use((request) => {
-//   console.log(request.headers);
-//   if (accessToken !== null && accessToken !== "" && accessToken !== undefined) {
-//     request.headers = { Authorization: `Bearer ${accessToken}` };
-//     console.log(request.headers);
-//   }
-//   return request;
-// });
+axios.interceptors.request.use((config) => {
+  console.log(config);
+
+  config.headers["Authorization"] = `Bearer ${localStorage.getItem(
+    "userToken"
+  )}`;
+
+  return config;
+});
 
 axios.interceptors.response.use((response) => {
   // console.log(response)
