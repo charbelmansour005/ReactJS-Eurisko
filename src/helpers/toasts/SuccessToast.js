@@ -1,15 +1,15 @@
 import { toast } from "react-toastify";
 
 const notifySuccess = () =>
-  toast.success("Logged In", {
-    position: "bottom-center",
+  toast.success("Logged In!", {
+    position: "bottom-left",
     autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: false,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: "light",
+    theme: "dark",
   });
 
 export default notifySuccess;
