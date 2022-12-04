@@ -7,13 +7,10 @@ import App from "./App";
 import "./index.css";
 import axios from "axios";
 
-/**
- * axios.defaults.headers.post["Content-Type"] = `application/json`;
- *
- * Commented this out since there is ONLY 1 post request (login)
- * this works, but must comment out the axios config in userActions.js first
- * to avoid sending doubled
+/*
+ * overkill since there is ONLY 1 post request (login)
  */
+axios.defaults.headers.post["Content-Type"] = `application/json`;
 
 axios.interceptors.request.use(
   (req) => {

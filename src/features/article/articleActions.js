@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../helpers/url";
+import { BASE_URL } from "../../services/url";
 
 export const fetchArticles = createAsyncThunk(
   "article/fetchArticles",

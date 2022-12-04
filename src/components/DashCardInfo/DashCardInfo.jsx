@@ -28,7 +28,7 @@ const DashCardInfo = ({ article }) => {
               sx={{
                 overflowWrap: "break-word",
                 whiteSpace: "pre-wrap",
-                fontStyle: "italic",
+                textAlign: "center",
               }}
             >
               Click on dropdown for Info
