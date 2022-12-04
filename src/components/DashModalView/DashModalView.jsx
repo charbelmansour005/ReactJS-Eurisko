@@ -16,14 +16,16 @@ const DashModalView = ({ article }) => {
       >
         On {article.pub_date.split("T")[0]}
       </Typography>
-      <Typography
-        gutterBottom
-        variant="body2"
-        component="div"
-        sx={{ m: 2, textAlign: "start" }}
-      >
-        {article.abstract}
-      </Typography>
+      <div style={{ overflow: "auto", height: "250px" }}>
+        <Typography
+          gutterBottom
+          variant="body2"
+          component="div"
+          sx={{ m: 2, textAlign: "start" }}
+        >
+          {article.abstract}
+        </Typography>
+      </div>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="horizontal" />
       <div className={classes.grid__button}>
         <Button

@@ -31,7 +31,7 @@ const DashCardInfo = ({ article }) => {
                 textAlign: "center",
               }}
             >
-              Click on dropdown for Info
+              To see more information, try clicking on the corner button!
             </Typography>
           )}
         </Typography>
