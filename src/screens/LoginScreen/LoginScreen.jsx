@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/user/userActions";
-// mui & style
+// mui & css
 import { LinearProgress } from "@mui/material";
 import classes from "./LoginScreen.module.css";
 // helpers

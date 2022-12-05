@@ -9,9 +9,9 @@ import {
 } from "../../features/article/articleSlice";
 import { fetchArticles } from "../../features/article/articleActions";
 import { useDispatch, useSelector } from "react-redux";
-// css module
+// css
 import classes from "./Dashboard.module.css";
-// material ui
+// mui
 import {
   Paper,
   InputBase,
@@ -22,14 +22,14 @@ import {
   Tooltip,
   Chip,
 } from "@mui/material";
-// material icons
+// icons
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-// dashboard components
+// components
 import DashCardImage from "../../components/DashCardImage/DashCardImage";
 import DashCardInfo from "../../components/DashCardInfo/DashCardInfo";
 import DashNavLogoutButton from "../../components/DashNavLogoutButton/DashNavLogoutButton";
@@ -151,7 +151,7 @@ const Dashboard = () => {
                 <Card
                   key={article._id}
                   sx={{ maxWidth: 345, m: 5, width: 400 }}
-                  variant="outlined"
+                  // variant="outlined"
                 >
                   {isActive === index ? (
                     <Tooltip
