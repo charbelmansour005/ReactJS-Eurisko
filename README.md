@@ -6,7 +6,7 @@
   </a>
 </p>
 
-## this react project was created using npm create vite@latest
+<h1 align="center">this react project was created using npm create vite@latest</h1>
 
 <p align="center">
   <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
