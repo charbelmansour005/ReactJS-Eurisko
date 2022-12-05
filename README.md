@@ -1,5 +1,11 @@
 # Eurisko articles
 
+<p align="center">
+  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://vitejs.dev/logo.svg" alt="Vite logo">
+  </a>
+</p>
+
 ## this react project was created using npm create vite@latest
 
 Vitejs is a modern technology, and is recently being widely recommended to be used instead of create-react-app. It is considered to be better use for production applications, it also is significantly faster than create-react-app…
