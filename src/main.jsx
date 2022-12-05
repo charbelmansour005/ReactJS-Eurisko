@@ -12,7 +12,7 @@ axios.defaults.headers.post["Content-Type"] = `application/json`;
 
 axios.interceptors.request.use(
   (req) => {
-    console.log(req);
+    // console.log(req);
     req.headers["Authorization"] = `Bearer ${localStorage.getItem(
       "userToken"
     )}`;
