@@ -22,7 +22,7 @@ This project is composed of a login screen and a dashboard screen, when the user
 ### Tech: 
 API’s are being handled using Axios, Async thunks & Redux Toolkit. 
 - The official documentation of redux has been strongly recommending the use of redux toolkit since 2019, it is an advocate of simple, clean, structured and reusable code.
-- Axios is a popular package which providers very useful features especially when working on bigger projects, like interceptors and defaults for example
+- Axios is a popular package which provides very useful features especially when working on bigger projects, like interceptors and defaults for example
 
 ### Product features:
 - The Login screen is responsive to most commonly used mobile devices, and the dashboard cards as well.
