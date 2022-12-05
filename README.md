@@ -1,5 +1,4 @@
 # Eurisko articles
-<h3 align="center">this react project was created using npm create vite@latest</h3>
 
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
