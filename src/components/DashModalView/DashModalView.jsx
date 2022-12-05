@@ -73,17 +73,6 @@ const DashModalView = ({ article }) => {
                     : `No exact section`}
                 </Typography>
               </div>
-              <div className={classes.box}>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{
-                    textAlign: "start",
-                  }}
-                >
-                  Click below to see {article.document_type}
-                </Typography>
-              </div>
             </>
           )}
         </Typography>
