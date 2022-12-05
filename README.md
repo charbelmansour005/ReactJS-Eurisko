@@ -14,7 +14,7 @@ For more on Vite: https://blog.logrocket.com/vite-3-vs-create-react-app-comparis
 
 3- Command click on http://127.0.0.1:5173/ when it appears in the terminal, or enter http://localhost:5173/ in the browser
 
-video preview of the project: http:// link
+video preview of the project: https://drive.google.com/file/d/1z4d9sH7edlbEZcE2ak1FhkZVEOTlD025/view?usp=share_link
 
 ## Description
 This project is composed of a login screen and a dashboard screen, when the user logs in with the correct credentials, he is sent to the dashboard page where he can navigate between articles and read their content.
