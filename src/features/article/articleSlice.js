@@ -13,7 +13,7 @@ const articleSlice = createSlice({
   name: "article",
   initialState,
   reducers: {
-    // filter articles
+    // filter articles by headline
     searchByContent: (state, action) => {
       const filteredArticles = state.filteredArticles.filter((article) =>
         article.headline.main
@@ -23,7 +23,7 @@ const articleSlice = createSlice({
       return {
         ...state,
         filteredArticles:
-          // replace filteredArticles with articles if no payload
+          // replace filteredArticles with articles if no input
           action.payload.length > 0 ? filteredArticles : [...state.articles],
       };
     },

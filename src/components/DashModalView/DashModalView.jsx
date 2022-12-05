@@ -5,7 +5,6 @@ import classes from "./DashModalView.module.css";
 const DashModalView = ({ article }) => {
   return (
     <React.Fragment>
-      {" "}
       <Typography variant="body1" sx={{ m: 2, textAlign: "start" }}>
         {article.source}
       </Typography>
@@ -26,14 +25,7 @@ const DashModalView = ({ article }) => {
           ? "Unknown Author"
           : article.byline.original}
       </Typography>
-      <div
-        style={{
-          overflow: "auto",
-          height: "205px",
-          padding: "3px",
-          margin: "10px",
-        }}
-      >
+      <div className={classes.modal__scroller}>
         <Typography
           gutterBottom
           variant="body2"
@@ -78,7 +70,7 @@ const DashModalView = ({ article }) => {
                 >
                   {article.section_name
                     ? `Section: ${article.section_name}`
-                    : `Unspecified section`}
+                    : `No exact section`}
                 </Typography>
               </div>
               <div className={classes.box}>

@@ -10,3 +10,10 @@
   padding: 7px;
   margin-top: 10px;
 }
+
+.modal__scroller {
+  overflow: auto;
+  height: 205px;
+  padding: 3px;
+  margin: 10px;
+}
