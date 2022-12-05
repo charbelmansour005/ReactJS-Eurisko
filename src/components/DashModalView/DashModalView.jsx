@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, Divider, Button } from "@mui/material";
 import classes from "./DashModalView.module.css";
+import { Typography, Divider, Button } from "@mui/material";
 
 const DashModalView = ({ article }) => {
   return (

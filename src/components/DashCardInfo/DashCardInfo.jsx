@@ -1,5 +1,5 @@
-import { CardContent, Typography } from "@mui/material";
 import classes from "./DashCardInfo.module.css";
+import { CardContent, Typography } from "@mui/material";
 
 const DashCardInfo = ({ article }) => {
   return (

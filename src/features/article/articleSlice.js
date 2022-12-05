@@ -23,7 +23,7 @@ const articleSlice = createSlice({
       return {
         ...state,
         filteredArticles:
-          // replace filteredArticles with articles if no input
+          // replace filteredArticles with articles if no search input
           action.payload.length > 0 ? filteredArticles : [...state.articles],
       };
     },

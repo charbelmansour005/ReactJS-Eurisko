@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   LinkedinShareButton,
   LinkedinIcon,
@@ -7,11 +8,8 @@ import {
   WhatsappIcon,
 } from "react-share";
 import { Tooltip } from "@mui/material";
-// import { useSelector } from "react-redux";
-import { Fragment } from "react";
 
 const DashShareButtons = ({ article, tooltip }) => {
-  // const tooltip = useSelector((state) => state.tooltip);
   return (
     <Fragment>
       <Tooltip

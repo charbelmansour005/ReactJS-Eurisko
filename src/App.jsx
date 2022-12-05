@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { CssBaseline } from "@mui/material";
 
 const App = () => {
+  // setting the theme globally
   const theme = useSelector((state) => state.theme);
   return (
     <Fragment>

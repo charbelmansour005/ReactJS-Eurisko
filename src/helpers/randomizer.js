@@ -27,5 +27,5 @@ export const chosenClassName = randomClass;
 
 // 404 page card variant
 const variants = ["outlined", "elevation"];
-const randomVariant = variants[Math.floor(Math.random() * 5)];
+const randomVariant = variants[Math.floor(Math.random() * 2)];
 export const variant = randomVariant;
