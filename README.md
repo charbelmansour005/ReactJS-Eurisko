@@ -23,7 +23,7 @@ For more on Vite: https://blog.logrocket.com/vite-3-vs-create-react-app-comparis
 
 1- Open on Visual Studio Code and run: npm install 
 
-2- Then run: npm run dev
+2- npm run dev
 
 3- Command click on http://127.0.0.1:5173/ when it appears in the terminal, or enter http://localhost:5173/ in the browser
 
