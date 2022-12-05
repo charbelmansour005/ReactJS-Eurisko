@@ -26,13 +26,16 @@ API’s are being handled using Axios, Async thunks & Redux Toolkit.
 
 ### Product features:
 - The Login screen is responsive to most commonly used mobile devices, and the dashboard cards as well.
-- Upon login success the user is greeted with a success message 
+- Upon login success the user is greeted with a success message.
 - The cards on the dashboard screen have a simple clean design and a corner button which when is clicked, shows a longer paragraph from the article if available. If not available, details are provided about the article and a bottom link is shown in both cases that allows the user to see the full article on NY Post.
 - The dashboard screen contains a custom top bar which has a search field, a button to turn tooltips on/off and a theme switch where both of the latter effect all the elements of the application.
-- The user may pull down to refresh by pulling down the screen by a pointer click & drag
-- The styling of the 404 page is randomized on reload
-- The login logo is randomized on reload
-- The article's card image is randomized on reload
+- The user may pull down to refresh by pulling down the screen by a pointer click & drag.
+- The styling of the 404 page is randomized on reload.
+- The login logo is randomized on reload.
+- The article's card image is randomized on reload.
+- Responsive Loading Skeletons that match the article's main card style and count.
+- Loader animations where necessary.
+- Info alerts where needed.
 
 ### Main Libraries:
 - axios
