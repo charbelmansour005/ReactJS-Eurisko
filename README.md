@@ -45,6 +45,7 @@ API’s are being handled using Axios, Async thunks (Redux Toolkit).
 - Axios is a popular package which provides very useful features especially when working on bigger projects, like interceptors and defaults for example
 
 ### Product features:
+- Pull down to refresh functionality on Dashboard page
 - The Login screen is responsive to most commonly used mobile devices, and the dashboard cards as well.
 - Upon login success the user is greeted with a success message.
 - The cards on the dashboard screen have a simple clean design and a corner button which when is clicked, shows a longer paragraph from the article if available. If not available, details are provided about the article and a bottom link is shown in both cases that allows the user to see the full article on NY Post.
