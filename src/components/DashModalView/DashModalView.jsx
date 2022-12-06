@@ -20,7 +20,7 @@ const DashModalView = ({ article }) => {
         color="text.secondary"
         sx={{ ml: 2, mb: 2, mr: 2, textAlign: "start" }}
       >
-        {article.byline.original == "null" ||
+        {article.byline.original === null ||
         article.byline.original?.includes("None")
           ? "Unknown Author"
           : article.byline.original}
