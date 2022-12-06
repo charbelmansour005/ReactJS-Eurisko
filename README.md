@@ -33,7 +33,7 @@ video preview of the project: https://drive.google.com/file/d/1z4d9sH7edlbEZcE2a
 This project is composed of a login screen and a dashboard screen, when the user logs in with the correct credentials, he is sent to the dashboard page where he can navigate between articles and read their content.
 
 ### Tech: 
-API’s are being handled using Axios, Async thunks & Redux Toolkit. 
+API’s are being handled using Axios, Async thunks (Redux Toolkit). 
 - The official documentation of redux has been strongly recommending the use of redux toolkit since 2019, it is an advocate of simple, clean, structured and reusable code, source: https://redux.js.org/redux-toolkit/overview#what-is-redux-toolkit
 - Axios is a popular package which provides very useful features especially when working on bigger projects, like interceptors and defaults for example
 
