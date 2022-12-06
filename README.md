@@ -8,16 +8,23 @@
 
 
 
-<p align="center">
+<div align="center">
+  <p>
   <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
   <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
   <a href="https://github.com/vitejs/vite/actions/workflows/ci.yml"><img src="https://github.com/vitejs/vite/actions/workflows/ci.yml/badge.svg?branch=main" alt="build status"></a>
   <a href="https://chat.vitejs.dev"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat"></a>
 </p>
+  </div>
+
 
 Vitejs is a modern technology, and is recently being widely recommended to be used instead of create-react-app. It is considered to be better use for production applications, it also is significantly faster than create-react-app…
 
 For more on Vite: https://blog.logrocket.com/vite-3-vs-create-react-app-comparison-migration-guide/
+
+<a href="https://axios-http.com" rel="nofollow" align="center">
+  <img src="https://camo.githubusercontent.com/272811d860f3fab0dd8ff0690e2ca36afbf0c96ad44100b8d42dfdce8511679b/68747470733a2f2f6178696f732d687474702e636f6d2f6173736574732f6c6f676f2e737667" data-canonical-src="https://axios-http.com/assets/logo.svg" style="max-width: 100%;">
+</a>
 
 ## Run this project:
 
@@ -33,11 +40,12 @@ video preview of the project: https://drive.google.com/file/d/1z4d9sH7edlbEZcE2a
 This project is composed of a login screen and a dashboard screen, when the user logs in with the correct credentials, he is sent to the dashboard page where he can navigate between articles and read their content.
 
 ### Tech: 
-API’s are being handled using Axios, Async thunks & Redux Toolkit. 
+API’s are being handled using Axios, Async thunks (Redux Toolkit). 
 - The official documentation of redux has been strongly recommending the use of redux toolkit since 2019, it is an advocate of simple, clean, structured and reusable code, source: https://redux.js.org/redux-toolkit/overview#what-is-redux-toolkit
 - Axios is a popular package which provides very useful features especially when working on bigger projects, like interceptors and defaults for example
 
 ### Product features:
+- Pull down to refresh functionality on Dashboard page
 - The Login screen is responsive to most commonly used mobile devices, and the dashboard cards as well.
 - Upon login success the user is greeted with a success message.
 - The cards on the dashboard screen have a simple clean design and a corner button which when is clicked, shows a longer paragraph from the article if available. If not available, details are provided about the article and a bottom link is shown in both cases that allows the user to see the full article on NY Post.
