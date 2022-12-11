@@ -9,11 +9,13 @@ import classes from "./LoginScreen.module.css";
 import { imageURL } from "../../helpers/randomizer";
 import notifySuccess from "../../helpers/toasts/SuccessToast";
 // components
-import LoginTextFields from "../../components/LoginTextFields/LoginTextFields";
-import LoginSubmitBtn from "../../components/LoginSubmitBtn/LoginSubmitBtn";
-import LoginError from "../../components/LoginError/LoginError";
-import LoginFormLinks from "../../components/LoginFormLinks/LoginFormLinks";
-import Copyright from "../../components/Copyright/Copyright";
+import {
+  Copyright,
+  LoginFormLinks,
+  LoginError,
+  LoginSubmitBtn,
+  LoginTextFields,
+} from "../../components/index";
 
 const LoginScreen = () => {
   const { loading, userInfo, error } = useSelector((state) => state.user);

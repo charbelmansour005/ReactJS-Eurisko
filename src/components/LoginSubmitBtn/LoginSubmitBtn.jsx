@@ -11,7 +11,7 @@ const LoginSubmitBtn = ({ username, password, handleLogin }) => {
       fullWidth
       variant="contained"
       sx={{ mt: 3, mb: 2, width: 350 }}
-      disabled={loading || (!username.length && !password.length)}
+      disabled={loading || !username.length || !password.length}
       color="secondary"
       onClick={handleLogin}
       className={classes.ButtonMobile}

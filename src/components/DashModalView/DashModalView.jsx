@@ -1,8 +1,10 @@
 import React from "react";
 import classes from "./DashModalView.module.css";
 import { Typography, Divider, Button } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const DashModalView = ({ article }) => {
+  const theme = useSelector((state) => state.theme);
   return (
     <React.Fragment>
       <Typography variant="body1" sx={{ m: 2, textAlign: "start" }}>
@@ -36,7 +38,7 @@ const DashModalView = ({ article }) => {
             article.abstract
           ) : (
             <>
-              <div className={classes.box}>
+              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -47,7 +49,7 @@ const DashModalView = ({ article }) => {
                   {article.type_of_material} material
                 </Typography>
               </div>
-              <div className={classes.box}>
+              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -60,7 +62,7 @@ const DashModalView = ({ article }) => {
                     : `${article.word_count} word count`}
                 </Typography>
               </div>
-              <div className={classes.box}>
+              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"

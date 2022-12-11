@@ -4,7 +4,7 @@ import { logout } from "../../features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Tooltip } from "@mui/material";
 
-const DashNavLogoutButton = ({tooltip}) => {
+const DashNavLogoutButton = ({ tooltip }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {

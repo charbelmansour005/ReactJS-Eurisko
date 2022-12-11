@@ -4,9 +4,9 @@ import { Paper } from "@mui/material";
 import { color, variant, chosenClassName } from "../../helpers/randomizer";
 // components
 import Copyright from "../../components/Copyright/Copyright";
-import Page404ErrorLinks from "../../components/Page404ErrorLinks/Page404ErrorLinks";
+import { Page404ErrorLinks } from "../../components/index";
 
-const NotFound = () => {
+const Page404 = () => {
   return (
     <div className={classes.centered}>
       <Paper variant={variant} sx={{ display: "grid", padding: "5vw" }}>
@@ -22,4 +22,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Page404;
