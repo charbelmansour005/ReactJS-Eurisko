@@ -26,10 +26,7 @@ const Page404ErrorLinks = () => {
       <a className={classes.LinkStyle} onClick={handleLoginRedirect}>
         {"←"} Login
       </a>
-
-      <div className={classes.LoaderContainer}>
-        {isLoading && <CircularProgress />}
-      </div>
+      {isLoading && <div className={classes.LoaderContainer}></div>}
     </Fragment>
   );
 };
