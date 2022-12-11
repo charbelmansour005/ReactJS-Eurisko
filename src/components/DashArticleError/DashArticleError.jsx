@@ -3,9 +3,9 @@ import classes from "./DashArticleError.module.css";
 
 const DashArticleError = ({ article }) => {
   return (
-    <div className={classes.container__div}>
+    <div className={classes.ContainerDiv}>
       {article.error && (
-        <div className={classes.center}>
+        <div className={classes.Center}>
           <Alert severity="error">
             {article.error} —
             <strong>

@@ -1,4 +1,4 @@
-.center__div {
+.CenterDiv {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 767px) {
-  .center__div {
+  .CenterDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,12 +14,12 @@
   }
 }
 
-.resp {
+.Resp {
   display: grid;
 }
 
 @media (max-width: 767px) {
-  .resp {
+  .Resp {
     display: grid;
     margin: 5%;
   }

@@ -20,14 +20,14 @@ const Page404ErrorLinks = () => {
 
   return (
     <Fragment>
-      <a className={classes.link__style} onClick={handleHomeRedirect}>
+      <a className={classes.LinkStyle} onClick={handleHomeRedirect}>
         {"←"} Go back Home
       </a>
-      <a className={classes.link__style} onClick={handleLoginRedirect}>
+      <a className={classes.LinkStyle} onClick={handleLoginRedirect}>
         {"←"} Login
       </a>
 
-      <div className={classes.loader__container}>
+      <div className={classes.LoaderContainer}>
         {isLoading && <CircularProgress />}
       </div>
     </Fragment>

@@ -8,7 +8,7 @@ const DashNavTooltipBtn = ({ tooltip }) => {
   const dispatch = useDispatch();
   const handleToggleTooltip = () => dispatch(toggleTooltip());
   return (
-    <div className={classes.responsive__tooltip}>
+    <div className={classes.ResponsiveTooltip}>
       <Tooltip
         title={tooltip.disabled ? "Enable tooltips" : "Disable tooltips"}
         placement="bottom"

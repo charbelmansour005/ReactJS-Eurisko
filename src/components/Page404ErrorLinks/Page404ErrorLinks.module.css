@@ -1,4 +1,4 @@
-.link__style {
+.LinkStyle {
   cursor: pointer;
   text-decoration: underline;
   font-size: 1.1rem;
@@ -7,15 +7,15 @@
   color: black;
 }
 
-.link__style:hover {
+.LinkStyle:hover {
   color: rgb(0, 140, 255);
 }
 
-.link__style:active {
+.LinkStyle:active {
   color: rgb(0, 102, 255);
 }
 
-.loader__container {
+.LoaderContainer {
   margin-top: 10px;
   display: grid;
   justify-content: center;

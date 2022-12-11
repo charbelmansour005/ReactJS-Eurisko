@@ -7,7 +7,7 @@ const DashCardSkeleton = ({ article }) => {
   const n = article.articles.length;
   return (
     <Fragment>
-      <div className={classes.skeleton__flex}>
+      <div className={classes.SkeletonFlex}>
         {[...Array(n)].map(() => (
           <Skeleton
             key={uuidv4()}

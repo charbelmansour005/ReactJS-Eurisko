@@ -8,7 +8,7 @@ const LoginError = () => {
   return (
     <Fragment>
       {error && (
-        <div className={classes.error__container}>
+        <div className={classes.ErrorContainer}>
           <Alert severity="error">
             <strong>{error}</strong>
           </Alert>

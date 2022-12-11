@@ -1,4 +1,4 @@
-.container__div {
+.ContainerDiv {
   display: grid;
   align-items: center;
   text-align: center;
@@ -6,7 +6,7 @@
   margin-top: 50px;
 }
 
-.center {
+.Center {
   display: grid;
   align-items: center;
   justify-content: center;

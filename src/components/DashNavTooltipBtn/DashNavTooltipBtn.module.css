@@ -1,9 +1,9 @@
-.responsive__tooltip {
+.ResponsiveTooltip {
   margin: auto;
 }
 
 @media (max-width: 767px) {
-  .responsive__tooltip {
+  .ResponsiveTooltip {
     display: none;
   }
 }

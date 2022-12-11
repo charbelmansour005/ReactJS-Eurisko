@@ -27,7 +27,7 @@ const DashModalView = ({ article }) => {
           ? "Unknown Author"
           : article.byline.original}
       </Typography>
-      <div className={classes.modal__scroller}>
+      <div className={classes.ModalScroller}>
         <Typography
           gutterBottom
           variant="body2"
@@ -38,7 +38,7 @@ const DashModalView = ({ article }) => {
             article.abstract
           ) : (
             <>
-              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
+              <div className={theme.darkTheme ? classes.BoxDark : classes.Box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -49,7 +49,7 @@ const DashModalView = ({ article }) => {
                   {article.type_of_material} material
                 </Typography>
               </div>
-              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
+              <div className={theme.darkTheme ? classes.BoxDark : classes.Box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -62,7 +62,7 @@ const DashModalView = ({ article }) => {
                     : `${article.word_count} word count`}
                 </Typography>
               </div>
-              <div className={theme.darkTheme ? classes.boxDark : classes.box}>
+              <div className={theme.darkTheme ? classes.BoxDark : classes.Box}>
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -80,7 +80,7 @@ const DashModalView = ({ article }) => {
         </Typography>
       </div>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="horizontal" />
-      <div className={classes.grid__button}>
+      <div className={classes.GridButton}>
         <Button
           sx={{ m: 2 }}
           size="small"

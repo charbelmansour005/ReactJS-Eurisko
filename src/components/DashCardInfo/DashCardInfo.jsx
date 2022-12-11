@@ -7,7 +7,7 @@ const DashCardInfo = ({ article }) => {
       <Typography gutterBottom variant="h8" component="div">
         {article.headline.main}
       </Typography>
-      <div className={classes.scroller}>
+      <div className={classes.Scroller}>
         <Typography
           gutterBottom
           variant="body2"
